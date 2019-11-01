@@ -1,0 +1,87 @@
+$primary-color: #651fff;
+$secondary-color: #4285f4;
+$cursor-radius: 32px;
+
+html,
+body {
+    cursor: none !important;
+    * {
+        cursor: none !important;
+    }
+}
+
+.primary {
+    background-color: $primary-color;
+}
+.secondary {
+    background-color: $secondary-color;
+}
+.primary-text {
+    color: $primary-color;
+}
+.secondary-text {
+    color: $secondary-color;
+}
+.badge-c {
+    padding: 2px 12px;
+    @extend .mono;
+}
+.poppins {
+    font-family: 'Poppins', 'Roboto', 'Segoe UI', sans-serif;
+    font-display: swap;
+}
+.mono {
+    font-family: 'Roboto Mono', 'Consolas', monospace;
+    font-display: swap;
+}
+
+.title {
+    p {
+        margin: 0;
+        font-size: 1.5rem;
+        @extend .mono;
+    }
+    h1 {
+        margin: 0;
+        color: $primary-color;
+        font-weight: 700;
+        @extend .poppins;
+    }
+}
+
+.cursor#cursor-point {
+    position: fixed;
+    pointer-events: none;
+    width: $cursor-radius;
+    height: $cursor-radius;
+    left: -$cursor-radius/2;
+    top: -$cursor-radius/2;
+    border-radius: 50%;
+    z-index: 99999;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 4px solid rgba($primary-color, 0.9);
+    transition: 0.4s border, 0.8s background, 0.2s padding, 0.2s box-shadow;
+    &.visit {
+        border-radius: 2px;
+        background-color: $primary-color;
+        border: 0px solid transparent;
+        width: 55px;
+        left: -25px;
+        padding: 5px 0px;
+        text-align: center;
+        font-weight: 700;
+        color: #fff;
+        box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    &.github {
+        width: 50px;
+        height: 50px;
+        border: 0px solid transparent;
+        border-radius: 0;
+        background-image: url(../../img/github.svg);
+        background-size: cover;
+        background-color: transparent;
+        top: -25px;
+        left: -25px;
+    }
+}
