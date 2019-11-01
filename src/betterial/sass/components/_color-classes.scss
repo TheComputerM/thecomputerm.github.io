@@ -1,0 +1,64 @@
+// Color Classes
+
+@each $color_name, $color in $colors {
+    @each $color_type, $color_value in $color {
+        @if $color_type== 'base' {
+            .#{$color_name} {
+                background-color: $color_value !important;
+            }
+
+            .#{$color_name}-text {
+                color: $color_value !important;
+            }
+
+            .#{$color_name}-outline {
+                border: 2px solid $color_value !important;
+                background: transparent !important;
+                color: $color_value !important;
+            }
+
+            .#{$color_name}-rgba-dark {
+                background-color: rgba($color_value, 0.7);
+            }
+
+            .#{$color_name}-rgba-medium {
+                background-color: rgba($color_value, 0.5);
+            }
+
+            .#{$color_name}-rgba-light {
+                background-color: rgba($color_value, 0.25);
+            }
+        } @else if $color_name != 'shades' and $color_name != 'gradients' {
+            .#{$color_name}.#{$color_type} {
+                background-color: $color_value !important;
+            }
+
+            .#{$color_name}-text.text-#{$color_type} {
+                color: $color_value !important;
+            }
+        }
+    }
+}
+
+// Shade classes
+@each $color, $color_value in $shades {
+    .#{$color} {
+        background-color: $color_value !important;
+    }
+
+    .#{$color}-outline {
+        border: 2px solid $color_value !important;
+        background: transparent !important;
+        color: $color_value !important;
+    }
+
+    .#{$color}-text {
+        color: $color_value !important;
+    }
+}
+
+@each $color, $color_value in $gradients {
+    .#{$color}-grad {
+        background-image: $color_value !important;
+    }
+}

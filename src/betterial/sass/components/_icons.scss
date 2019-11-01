@@ -1,0 +1,21 @@
+/* This is needed for some mobile phones to display the Google Icon font properly */
+.material-icons {
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'liga';
+}
+
+.md-64 {
+    font-size: 64px;
+}
+.md-48 {
+    font-size: 48px;
+}
+.md-32 {
+    font-size: 32px;
+}
+.md-24 {
+    font-size: 24px;
+}
+.md-16 {
+    font-size: 16px;
+}

@@ -1,0 +1,57 @@
+.collapsible {
+    border-top: 1px solid $collapsible-border-color;
+    border-right: 1px solid $collapsible-border-color;
+    border-left: 1px solid $collapsible-border-color;
+    margin: 0.5rem 0 1rem 0;
+    padding-left: 0px;
+    padding-right: 0px;
+    list-style: none;
+    .collapsible-header {
+        &:hover {
+            outline: 0;
+            background-color: $collection-hover-color;
+        }
+        display: flex;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        line-height: 1.5;
+        padding: $collapsible-padding;
+        background-color: #fff;
+        border-bottom: 1px solid $collapsible-border-color;
+        color: $collapsible-color;
+        transition: 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+        font-size: 1rem;
+        .badge {
+            margin-left: auto;
+        }
+        i {
+            width: 2rem;
+            font-size: 1.6rem;
+            display: inline-block;
+            text-align: center;
+            margin-right: 1rem;
+            color: $collection-icon-color;
+        }
+    }
+    .collapsible-body {
+        display: none;
+        border-bottom: 1px solid $collapsible-border-color;
+        box-sizing: border-box;
+        padding: $collapsible-body-padding;
+    }
+    &.popout {
+        border: none;
+        box-shadow: none;
+        > li {
+            @extend .z-depth-1;
+            // transform: scaleX(.92);
+            margin: 0 24px;
+            transition: margin 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        > li.active {
+            @extend .z-depth-2;
+            margin: 16px 0;
+            // transform: scaleX(1);
+        }
+    }
+}

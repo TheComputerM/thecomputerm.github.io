@@ -1,0 +1,106 @@
+$range-contrast: 5% !default;
+
+$range-ie-bottom-track-color: darken($slider-bg-color, $range-contrast) !default;
+
+@mixin track {
+    cursor: default;
+    height: $slider-height;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+@mixin thumb {
+    background: $slider-thumb-color;
+    border-radius: 50%;
+    box-sizing: border-box;
+    cursor: default;
+    height: $slider-thumb-size;
+    width: $slider-thumb-size;
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,.18),0 4px 15px 0 rgba(0,0,0,.15)!important;
+}
+
+.range-field input[type='range'] {
+    -webkit-appearance: none;
+    background: transparent;
+    margin: $slider-thumb-size / 2 0;
+    width: 100%;
+
+    &::-moz-focus-outer {
+        border: 0;
+    }
+
+    &:focus {
+        outline: 0;
+
+        &::-webkit-slider-runnable-track {
+            background: lighten($slider-bg-color, $range-contrast);
+        }
+
+        &::-ms-fill-lower {
+            background: $slider-bg-color;
+        }
+
+        &::-ms-fill-upper {
+            background: lighten($slider-bg-color, $range-contrast);
+        }
+    }
+
+    &::-webkit-slider-runnable-track {
+        @include track;
+        background: $slider-bg-color;
+        border-radius: 2px;
+    }
+
+    &::-webkit-slider-thumb {
+        @include thumb;
+        -webkit-appearance: none;
+        margin-top: (
+            ($slider-height) / 2 - $slider-thumb-size / 2
+        );
+    }
+
+    &::-moz-range-track {
+        @include track;
+        background: $slider-bg-color;
+        border-radius: 2px;
+        height: $slider-height / 2;
+    }
+
+    &::-moz-range-thumb {
+        @include thumb;
+    }
+
+    &::-ms-track {
+        @include track;
+        background: transparent;
+        border-color: transparent;
+        border-width: ($slider-thumb-size / 2) 0;
+        color: transparent;
+    }
+
+    &::-ms-fill-lower {
+        background: $range-ie-bottom-track-color;
+        border-radius: (2px * 2);
+    }
+
+    &::-ms-fill-upper {
+        background: $slider-bg-color;
+        border-radius: (2px * 2);
+    }
+
+    &::-ms-thumb {
+        @include thumb;
+        margin-top: $slider-height / 4;
+    }
+
+    &:disabled {
+        &::-webkit-slider-thumb,
+        &::-moz-range-thumb,
+        &::-ms-thumb,
+        &::-webkit-slider-runnable-track,
+        &::-ms-fill-lower,
+        &::-ms-fill-upper {
+            cursor: not-allowed;
+        }
+    }
+}

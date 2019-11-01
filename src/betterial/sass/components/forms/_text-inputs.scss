@@ -1,0 +1,240 @@
+%hidden-text {
+    color: transparent;
+    user-select: none;
+    pointer-events: none;
+}
+
+%label {
+    font-size: $input-font-size;
+    position: absolute;
+    font-weight: 400;
+    text-decoration: none;
+    transform-origin: left top;
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+        color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    line-height: 1.15rem;
+    text-align: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    cursor: text;
+    will-change: transform;
+    white-space: nowrap;
+    left: 16px;
+    top: 18px;
+    right: auto;
+    pointer-events: none;
+    color: $input-label-color;
+    &.active {
+        transform: translateY(-50%) scale(0.75);
+    }
+}
+
+%input {
+    border: none;
+    border-bottom: $input-border;
+    color: $input-color;
+    line-height: $input-line-height;
+    font-size: $label-font-size;
+    transition: 0.15s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.15s ease-in-out;
+    width: 100%;
+    height: 100%;
+    padding: $input-padding;
+    letter-spacing: 0.025rem;
+    font-family: $font-stack;
+    font-weight: 400;
+    &::placeholder {
+        color: color('grey', 'lighten-1');
+    }
+    &:invalid {
+        box-shadow: 0 0 0 0;
+    }
+    &.valid ~ .bottom-text > .helper-text[data-success],
+    &:focus.valid ~ .bottom-text > .helper-text[data-success],
+    &.invalid ~ .bottom-text > .helper-text[data-error],
+    &:focus.invalid ~ .bottom-text > .helper-text[data-error] {
+        @extend %hidden-text;
+    }
+
+    &.valid ~ .bottom-text > .helper-text[data-success]::after {
+        content: attr(data-success);
+        color: $success-color;
+    }
+    &.invalid ~ .bottom-text > .helper-text[data-error]::after {
+        content: attr(data-error);
+        color: $danger-color;
+    }
+
+    & ~ .bottom-text > .helper-text::after {
+        opacity: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    &:hover {
+        border-color: $input-hover-border-color;
+    }
+    &:focus {
+        border-color: $secondary-color;
+        border-width: 2px;
+        box-shadow: 0 1px $secondary-color;
+        & + label {
+            color: rgba($secondary-color, 0.87);
+        }
+        &.valid {
+            & + label {
+                color: $success-color;
+            }
+        }
+        &.invalid {
+            & + label {
+                color: $danger-color;
+            }
+        }
+    }
+}
+
+.text-field {
+    display: flex;
+    position: relative;
+    will-change: opacity, transform, color;
+    height: 56px;
+    flex-direction: column;
+    .bottom-text {
+        display: flex;
+        position: absolute;
+        top: 3.6rem;
+        color: $input-label-color;
+        font-size: 0.75rem;
+        flex-grow: 1;
+        width: 100%;
+        .helper-text {
+            display: block;
+            justify-content: flex-start;
+            font-weight: 400;
+        }
+        .character-counter {
+            display: block;
+            justify-content: flex-end;
+            margin-left: auto;
+            font-weight: 400;
+        }
+    }
+    &.disabled {
+        #{$input-names} {
+            border-bottom-style: dotted;
+            pointer-events: none;
+            color: lighten($input-color, 40%);
+            border-color: $disabled-color;
+        }
+        label {
+            color: $disabled-color;
+        }
+    }
+    #{$input-names} {
+        @extend %input;
+        &.invalid {
+            border-bottom: 2px $danger-color solid;
+        }
+        &.valid {
+            border-bottom: 2px $success-color solid;
+        }
+    }
+    textarea {
+        overflow-y: auto;
+        min-height: 120px;
+        transition: overflow-y 0s;
+        resize: vertical;
+    }
+    label {
+        @extend %label;
+        left: 0;
+    }
+
+    &.filled {
+        #{$input-names} {
+            @extend %input;
+            padding: $input-filled-padding;
+            background-color: $input-filled-background-color;
+            &:hover {
+                background-color: darken($input-filled-background-color, 5%);
+            }
+            &.invalid {
+                border-bottom: 2px $danger-color solid;
+            }
+            &.valid {
+                border-bottom: 2px $success-color solid;
+            }
+        }
+        label {
+            @extend %label;
+        }
+        textarea {
+            padding-top: 18px;
+        }
+    }
+
+    &.outline {
+        #{$input-names} {
+            @extend %input;
+            padding: $input-outline-padding;
+            border: 1px solid $input-outline-border-color;
+            border-radius: 2px;
+            transition: 0.15s;
+            &:hover {
+                border-color: $input-hover-border-color;
+            }
+            &:focus {
+                border-width: 2px;
+                border-color: $secondary-color;
+            }
+            &.invalid {
+                border: 2px $danger-color solid;
+            }
+            &.valid {
+                border: 2px $success-color solid;
+            }
+        }
+        label {
+            @extend %label;
+            transition: padding 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+            &.active {
+                padding: 0 6px;
+                transform: translateY(-130%) scale(0.75);
+                background-color: #fff;
+            }
+        }
+        &.rounded {
+            #{$input-names} {
+                border-radius: 10em;
+            }
+        }
+    }
+    &.with-icon-left {
+        i {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            right: auto;
+        }
+        #{$input-names} {
+            padding-left: 48px;
+            padding-right: 16px;
+        }
+        label {
+            left: 48px;
+            right: auto;
+        }
+    }
+    &.with-icon-right {
+        i {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+        }
+        #{$input-names} {
+            padding-right: 48px;
+        }
+    }
+}
