@@ -196,3 +196,42 @@ body {
     }
 }
 
+.gradient-text {
+    background: -webkit-linear-gradient(45deg, $secondary-color, #64b5f6);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.project-card {
+    transform-style: preserve-3d;
+    &:hover {
+        .card-body {
+            transform: translateZ(25px);
+        }
+        .card-image {
+            transform: translateZ(40px);
+        }
+    }
+    .card-body {
+        transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        transform: translateZ(0px);
+        padding: 1.5rem 2rem;
+        padding-bottom: 0.5rem;
+        p {
+            padding: 0;
+            margin: 0;
+            color: $primary-color;
+        }
+        .card-title {
+            margin-top: 0;
+        }
+    }
+    .card-image {
+        transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        transform: translateZ(0px);
+        display: inherit;
+        a {
+            display: inherit;
+        }
+    }
+}
