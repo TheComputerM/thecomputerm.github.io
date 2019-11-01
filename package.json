@@ -1,0 +1,41 @@
+{
+  "name": "thecomputerm.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "aos": "^2.3.4",
+    "jquery": "^3.4.1",
+    "node-waves": "^0.7.6",
+    "tilt.js": "^1.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "babelify": "^10.0.0",
+    "browser-sync": "^2.26.7",
+    "browserify": "^16.5.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-sass": "^4.0.2",
+    "node-sass": "^4.12.0",
+    "prettier": "^1.18.2",
+    "uglifyify": "^5.0.2",
+    "vinyl-source-stream": "^2.0.0"
+  },
+  "scripts": {
+    "dev": "gulp dev",
+    "compile": "gulp compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheComputerM/thecomputerm.github.io.git"
+  },
+  "author": "TheComputerM",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheComputerM/thecomputerm.github.io/issues"
+  },
+  "homepage": "https://github.com/TheComputerM/thecomputerm.github.io#readme"
+}
