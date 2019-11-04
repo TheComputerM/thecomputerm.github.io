@@ -37,7 +37,7 @@ body {
     font-display: swap;
 }
 
-.title {
+.main-title {
     p {
         margin: 0;
         font-size: 1.5rem;
@@ -68,10 +68,10 @@ body {
         background-color: $primary-color;
         border: 0px solid transparent;
         width: 55px;
-        left: -25px;
+        left: -27.5px;
         padding: 5px 0px;
         text-align: center;
-        font-weight: 700;
+        font-weight: 400;
         color: #fff;
         box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
@@ -85,6 +85,10 @@ body {
         background-color: transparent;
         top: -25px;
         left: -25px;
+    }
+    @media only screen and (max-width:600px) {
+        display: none;
+        visibility: none;
     }
 }
 
@@ -206,6 +210,7 @@ body {
 
 .project-card {
     transform-style: preserve-3d;
+    margin-bottom: 12px;
     &:hover {
         .card-body {
             transform: translateZ(25px);
@@ -234,6 +239,21 @@ body {
         display: inherit;
         a {
             display: inherit;
+        }
+    }
+}
+
+.features {
+    .col {
+        text-align: center;
+        margin-top: 0;
+        transition: .4s;
+        img {
+            width: 40%;
+        }
+        h4 {@extend .poppins;font-weight: 700;}
+        &:hover {
+            margin-top: -20px;
         }
     }
 }
