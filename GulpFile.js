@@ -8,6 +8,9 @@ const cleanCSS = require('gulp-clean-css');
 
 let browserSync = require('browser-sync').create();
 
+var critical = require('critical');
+var ncp = require("copy-paste");
+
 function js() {
     return browserify('./src/js/main.js')
         .transform('babelify', { presets: ['@babel/preset-env'] })
@@ -44,8 +47,24 @@ function dev() {
     watch('./index.html').on('change', browserSync.reload);
 }
 
+function criticalCSS(cb){
+    console.log('Hello');
+    critical.generate({
+        base: '.',
+        src: 'index.html',
+        width: 1368,
+        height: 800
+    },(err, output)=>{
+        console.log(err);
+        console.log(output);
+        ncp.copy(output);
+    })
+    cb();
+}
+
 exports.js = js;
 exports.css = css;
 exports.betterial = betterial;
 exports.compile = parallel(css, js);
 exports.dev = dev;
+exports.critical = criticalCSS;
