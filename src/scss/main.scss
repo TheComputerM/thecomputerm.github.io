@@ -2,6 +2,8 @@ $primary-color: #651fff;
 $secondary-color: #4285f4;
 $cursor-radius: 32px;
 
+@import 'fonts';
+
 html,
 body {
     cursor: none !important;
