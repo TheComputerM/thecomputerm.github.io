@@ -9,7 +9,7 @@ const cleanCSS = require('gulp-clean-css');
 let browserSync = require('browser-sync').create();
 
 var critical = require('critical');
-const clipboardy = require('clipboardy');
+var fs = require('fs');
 
 function js() {
     return browserify('./src/js/main.js')
@@ -47,17 +47,22 @@ function dev() {
     watch('./index.html').on('change', browserSync.reload);
 }
 
-async function criticalCSS(){
-    await critical.generate({
-        base: '.',
-        src: 'index.html',
-        width: 1400,
-        height: 800
-    },(err, output)=>{
-        console.log(err);
-        console.log(output);
-        clipboardy.write(output);
-    })
+async function criticalCSS() {
+    await critical.generate(
+        {
+            base: '.',
+            src: 'index.html',
+            width: 1400,
+            height: 800,
+        },
+        (err, output) => {
+            console.log(err);
+            console.log(output);
+            fs.writeFile('./dist/css/critical.css', output, (err) => {
+                console.log('File saved');
+            });
+        }
+    );
 }
 
 exports.js = js;
