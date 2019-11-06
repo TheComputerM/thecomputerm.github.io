@@ -65,7 +65,7 @@ body {
     transition: 0.4s border, 0.8s background, 0.2s padding, 0.2s box-shadow;
     &.visit {
         border-radius: 2px;
-        background-color: $primary-color;
+        background-color: $secondary-color;
         border: 0px solid transparent;
         width: 55px;
         left: -27.5px;
@@ -86,7 +86,7 @@ body {
         top: -25px;
         left: -25px;
     }
-    @media only screen and (max-width:600px) {
+    @media only screen and (max-width: 600px) {
         display: none;
         visibility: none;
     }
@@ -186,8 +186,9 @@ body {
     @media only screen and (max-width: 1000px) {
         border-radius: 0;
         text-align: center;
+        height: unset;
         .title {
-            font-size: 3.5rem;
+            font-size: 3rem;
         }
         img {
             position: relative;
@@ -195,9 +196,14 @@ body {
             bottom: unset;
             width: 225px;
             padding-top: 30px;
+            padding-bottom: 30px;
         }
         .dot {
             display: none;
+        }
+        .badge-c {
+            display: block;
+            text-align: center;
         }
     }
 }
@@ -244,16 +250,45 @@ body {
 }
 
 .features {
-    .col {
+    .feature {
         text-align: center;
         margin-top: 0;
-        transition: .4s;
+        transition: 0.4s;
+        @media screen and (max-width: 600px) {
+            border: 1px #eee solid;
+            margin-bottom: 10px;
+            box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+        }
         img {
             width: 40%;
         }
-        h4 {@extend .poppins;font-weight: 700;}
+        h4 {
+            @extend .poppins;
+            font-weight: 700;
+        }
         &:hover {
             margin-top: -20px;
         }
+    }
+}
+@keyframes wave {
+    0% {
+        margin-left: 0;
+    }
+    100% {
+        margin-left: -1600px;
+    }
+}
+
+.footer {
+    .waves {
+        background: url(../../img/waves.svg) repeat-x;
+        animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite;
+        height: 125px;
+    }
+    .container {
+        padding-top: 100px;
+        padding-bottom: 100px;
+        color: #fff;
     }
 }
