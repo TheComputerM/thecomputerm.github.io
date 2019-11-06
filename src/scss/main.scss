@@ -65,7 +65,7 @@ body {
     transition: 0.4s border, 0.8s background, 0.2s padding, 0.2s box-shadow;
     &.visit {
         border-radius: 2px;
-        background-color: $secondary-color;
+        background-color: #00c851;
         border: 0px solid transparent;
         width: 55px;
         left: -27.5px;
@@ -89,6 +89,34 @@ body {
     @media only screen and (max-width: 600px) {
         display: none;
         visibility: none;
+    }
+}
+
+.nav-hamburger {
+    position: fixed;
+    top: 50%;
+    right: 48px;
+    z-index: 999;
+    .nav-hamburger-bar {
+        display: flex;
+        width: 32px;
+        height: 4px;
+        background-color: #2e2e2e;
+        margin-bottom: 5px;
+        transition: 0.4s;
+    }
+    &.active {
+        .nav-hamburger-bar {
+            &:nth-child(1) {
+                transform: rotate(45deg) translate(12.5px);
+            }
+            &:nth-child(2) {
+                opacity: 0;
+            }
+            &:nth-child(3) {
+                transform: rotate(-45deg) translate(12.5px);
+            }
+        }
     }
 }
 
@@ -222,7 +250,7 @@ body {
             transform: translateZ(25px);
         }
         .card-image {
-            transform: translateZ(40px);
+            transform: translateZ(30px);
         }
     }
     .card-body {
@@ -253,7 +281,7 @@ body {
     .feature {
         text-align: center;
         margin-top: 0;
-        transition: 0.4s;
+        transition: 0.4s margin-top;
         @media screen and (max-width: 600px) {
             border: 1px #eee solid;
             margin-bottom: 10px;

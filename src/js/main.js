@@ -1,7 +1,7 @@
 const AOS = require('aos');
 AOS.init();
 const Waves = require('node-waves');
-Waves.attach('.btn', ['waves-effect'])
+Waves.attach('.btn', ['waves-effect']);
 Waves.init();
 const $ = require('jquery');
 window.$ = window.jQuery = $;
@@ -22,13 +22,24 @@ const initCursor = () => {
 
 initCursor();
 
-$('.visit-cursor').mouseenter(()=>{
-    $(cursor).addClass('visit').text('VISIT');
-}).mouseleave(()=>{
-    $(cursor).removeClass('visit').text('');
+$('.visit-cursor')
+    .mouseenter(() => {
+        $(cursor)
+            .addClass('visit')
+            .text('VISIT');
+    })
+    .mouseleave(() => {
+        $(cursor)
+            .removeClass('visit')
+            .text('');
+    });
+$('.github-cursor')
+    .mouseenter(() => {
+        $(cursor).addClass('github');
+    })
+    .mouseleave(() => {
+        $(cursor).removeClass('github');
+    });
+$('.nav-hamburger').mousedown(() => {
+    $('.nav-hamburger').toggleClass('active');
 });
-$('.github-cursor').mouseenter(()=>{
-    $(cursor).addClass('github');
-}).mouseleave(()=>{
-    $(cursor).removeClass('github');
-})
