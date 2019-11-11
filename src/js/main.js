@@ -3,7 +3,7 @@ AOS.init();
 const Waves = require('node-waves');
 Waves.attach('.btn', ['waves-effect']);
 Waves.init();
-const $ = require('jquery');
+const $ = require('jquery/dist/jquery.min');
 window.$ = window.jQuery = $;
 let cursorX = -100;
 let cursorY = -100;
@@ -42,4 +42,11 @@ $('.github-cursor')
     });
 $('.nav-hamburger').mousedown(() => {
     $('.nav-hamburger').toggleClass('active');
+    $('.side-nav').toggleClass('active');
+    $('body').toggleClass('nav-active');
+});
+
+$(document).ready(()=>{
+    console.warn('You expected a warning!');
+    console.log('But it was me, Mudit!');
 });
