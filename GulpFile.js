@@ -21,7 +21,7 @@ function js() {
 }
 
 function css() {
-    return src('./src/scss/main.scss')
+    return src(['./src/scss/index.scss', './src/scss/projects.scss', './src/scss/contact.scss'])
         .pipe(sass().on('error', sass.logError))
         .pipe(cleanCSS({ compatibility: 'ie8' }))
         .pipe(autoprefixer())
@@ -44,7 +44,7 @@ function dev() {
     });
     watch('./src/scss/**/*.scss').on('change', series(css, browserSync.reload));
     watch('./src/js/main.js').on('change', series(js, browserSync.reload));
-    watch('./index.html').on('change', browserSync.reload);
+    watch('./**.html').on('change', browserSync.reload);
 }
 
 async function criticalCSS() {
