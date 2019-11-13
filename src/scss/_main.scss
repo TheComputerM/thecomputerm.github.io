@@ -189,13 +189,13 @@ body {
         margin-left: -1600px;
     }
 }
+.wave {
+    background: url(../../img/waves.svg) repeat-x;
+    animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite;
+    height: 125px;
+}
 
 .footer {
-    .waves {
-        background: url(../../img/waves.svg) repeat-x;
-        animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite;
-        height: 125px;
-    }
     .container {
         padding-top: 100px;
         padding-bottom: 100px;

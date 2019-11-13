@@ -1,1 +1,16 @@
 @import 'main';
+
+.waves-background {
+    height: 45%;
+    width: 100%;
+    background-color: $primary-color;
+}
+.wave {transform: scaleY(-1);}
+
+.contact-modal {
+    padding: 4px 24px;
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+}

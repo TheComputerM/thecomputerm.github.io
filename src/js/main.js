@@ -46,7 +46,19 @@ $('.nav-hamburger').mousedown(() => {
     $('body').toggleClass('nav-active');
 });
 
-$(document).ready(()=>{
-    console.warn('You expected a warning!');
-    console.log('But it was me, Mudit!');
+$('.text-field input')
+    .focus(function() {
+        $(this)
+            .siblings('label')
+            .addClass('active');
+    })
+    .blur(function() {
+        $(this)
+            .siblings('label')
+            .removeClass('active');
+    });
+
+$(document).ready(() => {
+    console.warn('You expected a warning !');
+    console.log('But it was me, MUDIT !!');
 });
