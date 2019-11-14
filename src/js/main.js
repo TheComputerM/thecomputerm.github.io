@@ -23,10 +23,10 @@ const initCursor = () => {
 initCursor();
 
 $('.visit-cursor')
-    .mouseenter(() => {
+    .mouseenter(function() {
         $(cursor)
             .addClass('visit')
-            .text('VISIT');
+            .text($(this).attr('data-cursor'));
     })
     .mouseleave(() => {
         $(cursor)
@@ -53,9 +53,10 @@ $('.text-field input')
             .addClass('active');
     })
     .blur(function() {
-        $(this)
-            .siblings('label')
-            .removeClass('active');
+        if ($(this).val() == '')
+            $(this)
+                .siblings('label')
+                .removeClass('active');
     });
 
 $(document).ready(() => {

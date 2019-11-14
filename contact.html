@@ -61,7 +61,7 @@
             <div class="waves-background"></div>
             <div class="wave"></div>
             <div class="container white z-depth-2 contact-modal">
-                <h1 class="font-weight-800">Contact Me</h1>
+                <h1 class="font-weight-800 gradient-text indigo-grad">Contact Me</h1>
                 <div class="row">
                     <div class="col s12 m6">
                         <p class="primary-text mono">Address</p>
@@ -73,28 +73,64 @@
                         <p>+91 9869016184</p>
                         <p class="primary-text mono">E-Mail</p>
                         <p>mudit.hartshit99@gmail.com</p>
-                        <p class="responsive-text secondary-text mono">I would love to hear from you</p>
+                        <p class="responsive-text secondary-text mono">
+                            I would love to hear from you
+                        </p>
                     </div>
                     <div class="col s12 m6">
                         <div class="text-field">
-                            <input type="text" id="input1" />
-                            <label for="input1" class="mono">Name</label>
+                            <input type="text" id="name" />
+                            <label for="name" class="mono">Name</label>
                         </div>
                         <div class="text-field">
-                            <input type="text" id="input1" />
-                            <label for="input1" class="mono">Company</label>
+                            <input type="text" id="company" />
+                            <label for="company" class="mono">Company</label>
                         </div>
-                        <div class="text-field" style="height: 200px">
-                            <textarea id="textarea1" placeholder="Message"></textarea>
+                        <div class="text-field" style="height: 150px">
+                            <textarea id="message" placeholder="Message"></textarea>
                         </div>
+                        <p class="mono primary-text">Budget: </p>
+                        <div class="slider"></div>
                         <br />
                         <div class="center-align">
-                            <a href="#!" class="btn secondary waves-effect">Send</a>
+                            <a href="#!" class="btn secondary waves-effect send-mail visit-cursor" data-cursor="Let's Go">Send</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <script src="dist/js/bundle.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.min.js"></script>
+        <script>
+            $(document).ready(() => {
+                noUiSlider.create($('.slider')[0], {
+                    start: [5000, 7000],
+                    orientation: 'horizontal',
+                    connect: true,
+                    tooltips: [true, true],
+                    range: {
+                        min: 3000,
+                        max: 10000,
+                    },
+                    format: {
+                        to: function(value) {
+                            return 'Rs. ' + Math.round(value);
+                        },
+                        from: function(value) {
+                            return Number(value);
+                        },
+                    },
+                });
+            });
+            $('.send-mail').click(() => {
+                window.open(
+                    'mailto:mudit.harshit99@gamil.com?subject=We%20want%20to%20work%20with%20you&body='
+                        .concat('Name: ' + $('#name').val() + '%0D%0A')
+                        .concat('Company: ' + $('#company').val() + '%0D%0A')
+                        .concat($('#message').val() + '%0D%0A')
+                        .concat('Budget: ' + $('.slider')[0].noUiSlider.get())
+                );
+            });
+        </script>
     </body>
 </html>
