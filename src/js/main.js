@@ -1,5 +1,5 @@
 const AOS = require('aos');
-AOS.init();
+if (screen.width > 600) AOS.init();
 const Waves = require('node-waves');
 Waves.attach('.btn', ['waves-effect']);
 Waves.init();

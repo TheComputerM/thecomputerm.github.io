@@ -37,6 +37,7 @@ body {
 .badge-c {
     padding: 2px 12px;
     @extend .mono;
+    color: white
 }
 .poppins {
     font-family: 'Poppins', 'Roboto', 'Segoe UI', sans-serif;
@@ -80,7 +81,7 @@ body {
         border: 0px solid transparent;
         width: unset;
         height: unset;
-        left: -50%;
+        left: -25px;
         padding: 6px;
         text-align: center;
         font-weight: 800;
