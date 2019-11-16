@@ -1,5 +1,5 @@
 const AOS = require('aos');
-if (screen.width > 600) AOS.init();
+AOS.init({ disable: 'mobile' });
 const Waves = require('node-waves');
 Waves.attach('.btn', ['waves-effect']);
 Waves.init();
