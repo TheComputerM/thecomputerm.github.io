@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "aos": "^2.3.4",
-    "jquery": "^3.4.1",
+    "cash-dom": "^6.0.1",
     "node-waves": "^0.7.6",
     "tilt.js": "^1.2.1"
   },

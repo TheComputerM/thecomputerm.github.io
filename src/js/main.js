@@ -3,7 +3,7 @@ AOS.init({ disable: 'mobile' });
 const Waves = require('node-waves');
 Waves.attach('.btn', ['waves-effect']);
 Waves.init();
-const $ = require('jquery/dist/jquery.min');
+const $ = require('cash-dom');
 window.$ = window.jQuery = $;
 let cursorX = -100;
 let cursorY = -100;
@@ -23,36 +23,36 @@ const initCursor = () => {
 initCursor();
 
 $('.visit-cursor')
-    .mouseenter(function() {
+    .on('mouseenter', function() {
         $(cursor)
             .addClass('visit')
             .text($(this).attr('data-cursor'));
     })
-    .mouseleave(() => {
+    .on('mouseleave', () => {
         $(cursor)
             .removeClass('visit')
             .text('');
     });
 $('.github-cursor')
-    .mouseenter(() => {
+    .on('mouseenter', () => {
         $(cursor).addClass('github');
     })
-    .mouseleave(() => {
+    .on('mouseleave', () => {
         $(cursor).removeClass('github');
     });
-$('.nav-hamburger').mousedown(() => {
+$('.nav-hamburger').on('mousedown', () => {
     $('.nav-hamburger').toggleClass('active');
     $('.side-nav').toggleClass('active');
     $('body').toggleClass('nav-active');
 });
 
 $('.text-field input')
-    .focus(function() {
+    .on('focus', function() {
         $(this)
             .siblings('label')
             .addClass('active');
     })
-    .blur(function() {
+    .on('blur', function() {
         if ($(this).val() == '')
             $(this)
                 .siblings('label')
