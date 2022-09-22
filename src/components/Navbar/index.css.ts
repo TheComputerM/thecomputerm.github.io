@@ -14,7 +14,7 @@ export const title = style({
   fontWeight: "bold",
   "::after": {
     // █ or _
-    content: "█",
+    content: "▓",
     color: palette.green,
     marginLeft: 2,
     animation: `${blinking} 2s steps(2, start) infinite`,

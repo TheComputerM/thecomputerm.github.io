@@ -4,6 +4,7 @@ import { palette } from "../../styles/themes.css";
 export const container = style({
   position: "relative",
   overflow: 'hidden',
+  height: "calc(100vh - 125px)",
   ":after": {
     background: `linear-gradient(to bottom, #1e1e1e, transparent 20%, 90%, #1e1e1e)`,
   },
