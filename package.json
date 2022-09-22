@@ -8,6 +8,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "pages": "gh-pages -d dist",
     "astro": "astro"
   },
   "dependencies": {
@@ -15,6 +16,7 @@
     "@vanilla-extract/css": "^1.9.1",
     "@vanilla-extract/vite-plugin": "^3.6.0",
     "astro": "^1.2.8",
+    "gh-pages": "^4.0.0",
     "solid-js": "^1.5.6"
   }
 }
