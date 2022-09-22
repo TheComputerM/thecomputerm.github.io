@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { onCleanup, onMount } from "solid-js";
 import * as styles from "./index.css";
 
@@ -11,7 +10,7 @@ function Matrix() {
   let intervalId: number;
 
   function init() {
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
     const w = (canvas.width = document.documentElement.clientWidth);
     const h = (canvas.height = document.documentElement.clientHeight - 125);
 
