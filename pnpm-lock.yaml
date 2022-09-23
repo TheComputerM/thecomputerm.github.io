@@ -7,6 +7,7 @@ specifiers:
   astro: ^1.2.8
   gh-pages: ^4.0.0
   solid-js: ^1.5.6
+  solid-toast: ^0.3.5
 
 dependencies:
   '@astrojs/solid-js': 1.1.0_solid-js@1.5.6
@@ -15,6 +16,7 @@ dependencies:
   astro: 1.2.8
   gh-pages: 4.0.0
   solid-js: 1.5.6
+  solid-toast: 0.3.5_solid-js@1.5.6
 
 packages:
 
@@ -3346,6 +3348,14 @@ packages:
     resolution: {integrity: sha512-EA7hjMIEdDUuV6Fk3WUQ2fPx7sRnhjl+3M59zj6Sh+c7c3JF3N1cSViBvX8MYJG9vEBEqKQBZUfKHPe/9JgKvQ==}
     dependencies:
       csstype: 3.1.1
+    dev: false
+
+  /solid-toast/0.3.5_solid-js@1.5.6:
+    resolution: {integrity: sha512-m4PX2ESex9nSwt9d9XTr3r+Kp3vjSoViDWj3gj6Xxgz21IKYODMKhACXurlZCztz56NQBnfX2m4es4I8JgXGQQ==}
+    peerDependencies:
+      solid-js: ^1.5.4
+    dependencies:
+      solid-js: 1.5.6
     dev: false
 
   /source-map-js/1.0.2:

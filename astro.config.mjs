@@ -6,6 +6,9 @@ import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 export default defineConfig({
   integrations: [solidJs()],
   vite: {
-    plugins: [vanillaExtractPlugin()]
+    plugins: [vanillaExtractPlugin()],
+    ssr: {
+      noExternal: ['solid-toast']
+    }
   }
 });

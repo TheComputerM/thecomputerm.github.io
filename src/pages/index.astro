@@ -2,9 +2,39 @@
 import Navbar from "../components/Navbar";
 import Layout from "../layouts/BaseLayout.astro";
 import Matrix from "../blocks/Matrix";
+import Section from "../components/Section";
+import Link from "../components/Link";
 ---
 
 <Layout title="TheComputerM">
-	<Navbar />
-	<Matrix client:load />
+	
+  <Navbar />
+  <Matrix client:load />
+  <Section>
+    <h3>Hey There</h3>
+    <p>
+      I am Mudit Somani aka TheComputerM. I'm current a student at _____
+      studying _____. I love to code and learn how various technologies function.
+			I write about things which I find interesting on my <Link href="/blog">blog</Link>.
+    </p>
+  </Section>
+  <Section>
+    <h3>Experience</h3>
+    <p>
+      I have 6+ years in programming and 4+ years in web development. I have
+      been coding from a very young age and have not stopped since. Initially, I
+      started with web development and then slowly made my move to other areas
+      such as open source, algorithms, compiler design and artificial
+      intelligence. Today I enjoy doing open source and finding optimized
+      solutions to problems.
+    </p>
+  </Section>
+	<Section>
+    <h3>Find Me</h3>
+    <p>
+      You can find me on <Link href="">GitHub</Link>, <Link href="#">LinkedIn</Link> and <Link href="">Twitter</Link>.
+			<br />
+			Or you can just email me at <Link href="">mudit.somani00@gmail.com</Link> 
+    </p>
+  </Section>
 </Layout>

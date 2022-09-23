@@ -12,7 +12,7 @@ function Matrix() {
   function init() {
     const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
     const w = (canvas.width = document.documentElement.clientWidth);
-    const h = (canvas.height = document.documentElement.clientHeight - 125);
+    const h = (canvas.height = document.documentElement.clientHeight - 100);
 
     ctx.clearRect(0, 0, w, h);
 
@@ -58,7 +58,7 @@ function Matrix() {
   return (
     <div class={styles.container}>
       <canvas class={styles.canvas} ref={canvas} />
-      <div class={styles.text}>
+      <div class={styles.textContainer}>
         <h1>TCM</h1>
       </div>
     </div>
