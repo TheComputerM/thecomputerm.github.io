@@ -58,3 +58,18 @@ globalStyle('ul', {
   listStyleType: "'- '",
   paddingInlineStart: '1.5rem'
 })
+
+globalStyle('table', {
+  width: '100%',
+  borderCollapse: 'collapse',
+  fontSize: '1rem'
+});
+
+globalStyle('table :where(td,th)', {
+  border: '1px solid currentColor',
+  padding: '5px'
+})
+
+globalStyle('table>caption', {
+  marginBottom: '1em'
+})

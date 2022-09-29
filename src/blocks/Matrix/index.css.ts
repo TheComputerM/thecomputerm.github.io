@@ -30,11 +30,11 @@ const textFadeAnimation = keyframes({
     mixBlendMode: "hue",
     opacity: 1,
   },
-  "60%": {
+  "55%": {
     mixBlendMode: "hue",
     opacity: 1,
   },
-  "70%": {
+  "56%": {
     mixBlendMode: "hue",
     opacity: 0,
   },
@@ -52,6 +52,7 @@ export const textContainer = style({
   mixBlendMode: "color-dodge",
   animationName: textFadeAnimation,
   animationDuration: "2.5s",
+  animationTimingFunction: 'ease-in-out'
 });
 
 globalStyle(`${textContainer} h1`, {

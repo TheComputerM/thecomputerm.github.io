@@ -11,7 +11,6 @@ function Navbar() {
       <div class={styles.navitems}>
         <Link href="/">Blog</Link>
         <Link href="/">Projects</Link>
-        <Link href="/">Contact</Link>
       </div>
     </nav>
   );

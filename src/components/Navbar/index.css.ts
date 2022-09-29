@@ -24,7 +24,7 @@ export const title = style({
 
 export const hideWhenSmall = style(
   responsive({
-    '< mobile': {
+    "< mobile": {
       display: "none",
     },
   })
