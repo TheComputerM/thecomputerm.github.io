@@ -12,7 +12,7 @@ function Matrix() {
   function init() {
     const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
     const w = (canvas.width = document.documentElement.clientWidth);
-    const h = (canvas.height = document.documentElement.clientHeight - 100);
+    const h = (canvas.height = document.documentElement.clientHeight);
 
     ctx.clearRect(0, 0, w, h);
 

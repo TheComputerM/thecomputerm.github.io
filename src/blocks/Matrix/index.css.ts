@@ -1,5 +1,6 @@
 import { globalStyle, keyframes, style } from "@vanilla-extract/css";
 import { palette } from "../../styles/themes.css";
+import { responsive } from "../../styles/utils";
 
 export const container = style({
   position: "relative",
@@ -43,17 +44,20 @@ const textFadeAnimation = keyframes({
   },
 });
 
-export const textContainer = style({
+export const textContainer = style([{
   position: "absolute",
   inset: 0,
   display: "grid",
   placeContent: "center",
   zIndex: 10,
   mixBlendMode: "color-dodge",
-  animationName: textFadeAnimation,
-  animationDuration: "2.5s",
-  animationTimingFunction: 'ease-in-out'
-});
+}, responsive({
+  '> mobile': {
+    animationName: textFadeAnimation,
+    animationDuration: "2.5s",
+    animationTimingFunction: 'ease-in-out'
+  }
+})]);
 
 globalStyle(`${textContainer} h1`, {
   fontSize: "max(180px, 35vw)",
