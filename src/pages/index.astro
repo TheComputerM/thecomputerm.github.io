@@ -1,10 +1,92 @@
 ---
 import Navbar from "../components/Navbar";
 import Layout from "../layouts/BaseLayout.astro";
-import Matrix from "../blocks/Matrix";
+import Matrix from "./_index/Matrix";
 import Section from "../components/Section";
 import Link from "../components/Link";
+import InfoCard from "./_index/InfoCard";
+
+const language_cards = [
+  {
+    name: "JavaScript",
+    icon: "javascript",
+    desc: "This was the first language I was introduced to so I am pretty good at it.",
+  },
+  {
+    name: "TypeScript",
+    icon: "typescript",
+    desc: "Sometimes prefer this over javascript for that editor intellisense.",
+  },
+  {
+    name: "Python",
+    icon: "python",
+    desc: "I used it primarily for scripting, quick demos and some machine learning.",
+  },
+  {
+    name: "C++",
+    icon: "cpp",
+    desc: "Pretty decent at it but still prefer Golang or Rust over it.",
+  },
+  {
+    name: "C",
+    icon: "c",
+    desc: "Helped me to understand the fundamentals of a computer.",
+  },
+  {
+    name: "Julia",
+    icon: "julia",
+    desc: "Learned it for my GCI projects, still enjoy using it.",
+  },
+  {
+    name: "Go",
+    icon: "go",
+    desc: "Simple, fast and easy to learn. Made some quick projects with it.",
+  },
+  {
+    name: "Rust",
+    icon: "rust",
+    desc: "Currently learning and loving it",
+  },
+];
+
+const tool_cards = [
+  {
+    name: "Svelte",
+    icon: "svelte",
+    desc: "One of the most simplest and efficient frameworks I have worked in.",
+  },
+  {
+    name: "Solid",
+    icon: "solid",
+    desc: "Safe to say my favorite, this site was made using Solidjs.",
+  },
+  {
+    name: "React",
+    icon: "react",
+    desc: "The first framework I learned, definitely overrated.",
+  },
+  {
+    name: "Vue",
+    icon: "vue",
+    desc: "I am at an intermediate level in Vue 3.",
+  },
+  {
+    name: "PostgreSQL",
+    icon: "postgresql",
+    desc: "The best SQL database I have worked with.",
+  },
+];
 ---
+
+<style>
+  .card-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+</style>
 
 <Layout title="TheComputerM">
   <Navbar />
@@ -12,9 +94,8 @@ import Link from "../components/Link";
   <Section>
     <h3>Hey There</h3>
     <p>
-      I am Mudit Somani aka TheComputerM. I'm currently a student at <Link
-        href="https://www.bits-pilani.ac.in/hyderabad/">BITS Pilani</Link
-      >
+      I am Mudit Somani aka TheComputerM. I'm currently a student at 
+      <Link href="https://www.bits-pilani.ac.in/hyderabad/">BITS Pilani</Link>
       studying computer science. I love to code and learn how various technologies
       function. I occasionally <Link href="/blog">blog</Link> about things which
       I find interesting and/or helpful. I read books and play badminton in my spare
@@ -23,6 +104,8 @@ import Link from "../components/Link";
   </Section>
   <Section>
     <h3>Experience</h3>
+    <br />
+    <h4>About Me</h4>
     <p>
       I've been coding from a very young age and have not stopped since. Having
       about 6+ years in programming and 3+ years in web development, I've worked
@@ -33,16 +116,26 @@ import Link from "../components/Link";
       artificial intelligence.
     </p>
     <p>
-      I have participated in some programming competitions and was a finalist in <Link
-        href="https://codein.withgoogle.com/archive/2019/"
-        >Google Code-In 2019</Link
-      >
+      I have participated in some programming competitions and was a finalist in
+      <Link href="https://codein.withgoogle.com/archive/2019/">Google Code-In 2019</Link>
       for the Julia programming language.
     </p>
     <p>
       Today I enjoy developing applications and finding optimized solutions to
       complex problems.
     </p>
+    <hr />
+    <h4>Technologies</h4>
+    <br />
+    <div class="card-list">
+      {language_cards.map((card) => <InfoCard client:idle {...card} />)}
+    </div>
+    <hr />
+    <h4>Tools and frameworks</h4>
+    <br />
+    <div class="card-list">
+      {tool_cards.map((card) => <InfoCard client:idle {...card} />)}
+    </div>
   </Section>
   <Section>
     <h3>Contact Me</h3>

@@ -1,0 +1,1 @@
+helper components for `/index.astro` (homepage)

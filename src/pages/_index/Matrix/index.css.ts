@@ -1,13 +1,13 @@
 import { globalStyle, keyframes, style } from "@vanilla-extract/css";
-import { palette } from "../../styles/themes.css";
-import { responsive } from "../../styles/utils";
+import { palette, dark as darkTheme } from "../../../styles/themes.css";
+import { responsive } from "../../../styles/utils";
 
 export const container = style({
   position: "relative",
   overflow: "hidden",
   height: "calc(100vh - 100px)",
   ":after": {
-    background: `linear-gradient(to bottom, #1e1e1e, transparent 20%, 90%, #1e1e1e)`,
+    background: `linear-gradient(to bottom, ${palette.background}, transparent 20%, 90%, ${palette.background})`,
   },
   ":before": {
     background:
@@ -50,7 +50,12 @@ export const textContainer = style([{
   display: "grid",
   placeContent: "center",
   zIndex: 10,
-  mixBlendMode: "color-dodge",
+  mixBlendMode: "color-burn",
+  selectors: {
+    [`${darkTheme} &`]: {
+      mixBlendMode: "color-dodge"
+    }
+  }
 }, responsive({
   '> mobile': {
     animationName: textFadeAnimation,
@@ -69,5 +74,10 @@ globalStyle(`${textContainer} h1`, {
 });
 
 export const canvas = style({
-  mixBlendMode: "screen",
+  mixBlendMode: "difference",
+  selectors: {
+    [`${darkTheme} &`]: {
+      mixBlendMode: "screen"
+    }
+  }
 });
