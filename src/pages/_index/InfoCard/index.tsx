@@ -32,11 +32,11 @@ const InfoCard: Component<InfoCardProps> = (props) => {
     }
 
     return (
-        <div role="listitem" onFocus={showTooltip} onBlur={hideTooltip} tabIndex={0} ref={target} class={styles.card}>
-            <img loading="lazy" onPointerEnter={showTooltip} onPointerLeave={hideTooltip} src={`/api/logos/${props.icon}.svg`} />
+        <div role="listitem" onPointerEnter={showTooltip} onPointerLeave={hideTooltip} onFocus={showTooltip} onBlur={hideTooltip} tabIndex={0} ref={target} class={styles.card}>
+            <img loading="lazy" src={`/api/logos/${props.icon}.svg`} />
             <div class={styles.tooltip} ref={tooltip}>
                 <h5>{props.name}</h5>
-                <hr style={{margin: '6px 0'}} />
+                <hr style={{ margin: '6px 0' }} />
                 {props.desc}
             </div>
         </div>

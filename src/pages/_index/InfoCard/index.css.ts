@@ -18,7 +18,7 @@ globalStyle(`${card} > img`, {
 })
 
 
-globalStyle(`${card}:focus > img, ${card} > img:hover`, {
+globalStyle(`${card}:is(:focus, :hover) > img`, {
     filter: "grayscale(0%)"
 })
 
