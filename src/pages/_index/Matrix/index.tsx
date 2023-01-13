@@ -41,14 +41,19 @@ function Matrix() {
     clearInterval(intervalId);
   }
 
+  let prev_window_x: number;
   function onResize() {
-    destroy();
-    init();
+    if (window.innerWidth > prev_window_x) {
+      prev_window_x = window.innerWidth;
+      destroy();
+      init();
+    }
   }
 
   onMount(() => {
     init();
-    window.addEventListener('resize', onResize, {passive: true});
+    prev_window_x = window.innerWidth;
+    window.addEventListener('resize', onResize, { passive: true });
   });
   onCleanup(() => {
     destroy();
