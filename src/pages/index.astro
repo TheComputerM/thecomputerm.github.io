@@ -127,13 +127,13 @@ const tool_cards = [
     <hr />
     <h4>Technologies</h4>
     <br />
-    <div class="card-list">
+    <div class="card-list" role="list">
       {language_cards.map((card) => <InfoCard client:idle {...card} />)}
     </div>
     <hr />
     <h4>Tools and frameworks</h4>
     <br />
-    <div class="card-list">
+    <div class="card-list" role="list">
       {tool_cards.map((card) => <InfoCard client:idle {...card} />)}
     </div>
   </Section>

@@ -9,12 +9,12 @@ interface InfoCardProps {
 }
 
 const InfoCard: Component<InfoCardProps> = (props) => {
-    let img!: HTMLImageElement;
+    let target!: HTMLDivElement;
     let tooltip!: HTMLDivElement;
 
 
     function updateTooltip() {
-        computePosition(img, tooltip, { placement: 'bottom-start', middleware: [offset(6), flip()] }).then(({ x, y }) => {
+        computePosition(target, tooltip, { placement: 'bottom-start', middleware: [offset(6), flip()] }).then(({ x, y }) => {
             Object.assign(tooltip.style, {
                 left: `${x}px`,
                 top: `${y}px`,
@@ -32,8 +32,8 @@ const InfoCard: Component<InfoCardProps> = (props) => {
     }
 
     return (
-        <div class={styles.card}>
-            <img ref={img} loading="lazy" onPointerEnter={showTooltip} onPointerLeave={hideTooltip} src={`/api/logos/${props.icon}.svg`} />
+        <div role="listitem" onFocus={showTooltip} onBlur={hideTooltip} tabIndex={0} ref={target} class={styles.card}>
+            <img loading="lazy" onPointerEnter={showTooltip} onPointerLeave={hideTooltip} src={`/api/logos/${props.icon}.svg`} />
             <div class={styles.tooltip} ref={tooltip}>
                 <h5>{props.name}</h5>
                 <hr style={{margin: '6px 0'}} />

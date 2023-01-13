@@ -59,6 +59,10 @@ globalStyle('ul', {
   paddingInlineStart: '1.5rem'
 })
 
+globalStyle(':focus', {
+  outline: `2px solid ${palette.blue}`
+})
+
 globalStyle('table', {
   width: '100%',
   borderCollapse: 'collapse',

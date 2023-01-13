@@ -3,6 +3,7 @@ import { createThemeContract, createTheme } from "@vanilla-extract/css";
 export const palette = createThemeContract({
   background: null,
   foreground: null,
+  surface: null,
   selection: null,
   black: null,
   blue: null,
@@ -48,6 +49,7 @@ export const dark = createTheme(palette, {
   "background": "#212121",
   "foreground": "#DEDEDE",
   "selection": "#EEFFFF88",
+  surface: "#2F2F2F",
   "black": "#212121",
   "blue": "#82AAFF",
   "cyan": "#89DDFF",
@@ -62,6 +64,7 @@ export const light = createTheme(palette, {
   "background": "#FFFFFF",
   "foreground": "#4C4A4E",
   "selection": "#4C4A4E55",
+  surface: "#2F2F2F",
   "black": "#FFFFFF",
   "blue": "#775DFF",
   "cyan": "#149BDA",

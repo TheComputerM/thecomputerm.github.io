@@ -8,17 +8,17 @@ export const card = style({
     width: '100px',
     padding: '1.25rem',
     borderRadius: '0.75rem',
-    backgroundColor: '#2f2f2f',
+    backgroundColor: palette.surface,
 })
 
-globalStyle(`${card} img`, {
+globalStyle(`${card} > img`, {
     width: "100%",
     filter: "grayscale(100%)",
-    transition: "filter 250ms ease-in"
+    transition: "filter 250ms ease-in",
 })
 
 
-globalStyle(`${card}:hover img`, {
+globalStyle(`${card}:focus > img, ${card} > img:hover`, {
     filter: "grayscale(0%)"
 })
 
