@@ -54,10 +54,13 @@ function Matrix() {
     init();
     prev_window_x = window.innerWidth;
     window.addEventListener('resize', onResize, { passive: true });
+    return () => {
+      window.removeEventListener('resize', onResize);
+    }
   });
+
   onCleanup(() => {
     destroy();
-    window.removeEventListener('resize', onResize);
   });
 
   return (
