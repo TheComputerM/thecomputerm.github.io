@@ -1,6 +1,17 @@
 @layer reset, base, tokens, recipes, utilities;
 
 
+@layer base {
+  /* shiki dark theme */
+  @media (prefers-color-scheme: dark) {
+    .astro-code,
+    .astro-code span {
+      color: var(--shiki-dark) !important;
+      background-color: var(--shiki-dark-bg) !important;
+    }
+  }
+}
+
 /* adapted from https://github.com/owickstrom/the-monospace-web/blob/main/index.css */
 @layer base {
   :root {
@@ -9,7 +20,7 @@
     font-variant-numeric: tabular-nums lining-nums;
   }
 
-  * + * {
+  *+* {
     margin-top: var(--line-heights-normal);
   }
 
