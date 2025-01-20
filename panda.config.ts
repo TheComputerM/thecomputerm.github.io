@@ -68,6 +68,10 @@ export default defineConfig({
 		"--global-font-body": "JetBrains Mono Variable, monospace",
 		"--global-font-mono": "JetBrains Mono Variable, monospace",
 	},
+	hash: {
+		cssVar: false,
+		className: true
+	},
 
 	// The output directory for your css system
 	outdir: "styled-system",
