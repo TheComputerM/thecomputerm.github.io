@@ -1,8 +1,10 @@
 {
   "name": "thecomputerm-website",
   "type": "module",
+  "private": true,
   "version": "0.0.1",
   "scripts": {
+    "prepare": "panda codegen",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
@@ -10,10 +12,14 @@
     "check": "biome check src"
   },
   "dependencies": {
+    "@astrojs/solid-js": "^5.0.3",
+    "@fontsource-variable/jetbrains-mono": "^5.1.2",
     "astro": "^5.1.7",
-    "charsm": "^0.2.0"
+    "charsm": "^0.2.0",
+    "solid-js": "^1.9.4"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4"
+    "@biomejs/biome": "1.9.4",
+    "@pandacss/dev": "^0.51.1"
   }
 }
