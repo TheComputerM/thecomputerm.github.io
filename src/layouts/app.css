@@ -61,6 +61,7 @@
   }
 
   a {
+    background-color: var(--colors-bg-canvas);
     text-decoration: underline;
     text-decoration-thickness: var(--border-widths-normal);
   }
@@ -68,6 +69,11 @@
   a:link,
   a:visited {
     color: var(--colors-fg-default);
+  }
+
+  a:hover {
+    background-color: var(--colors-fg-default);
+    color: var(--colors-bg-canvas);
   }
 
   p {
