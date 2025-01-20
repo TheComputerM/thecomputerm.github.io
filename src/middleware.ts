@@ -1,3 +1,4 @@
+import { getEntry } from "astro:content";
 import { defineMiddleware } from "astro:middleware";
 import { initLip, Lipgloss } from "charsm";
 
@@ -24,11 +25,20 @@ const PLAIN_TEXT_AGENTS = [
 ];
 
 export const onRequest = defineMiddleware(async (context, next) => {
-	// TODO: return content based on user agent
-	if (context.request.headers.get("user-agent")?.includes("curl")) {
-		return new Response(lip.RenderMD("# Hello"), {
-			status: 200,
-		});
+	const response = await next();
+	if (
+		PLAIN_TEXT_AGENTS.some((agent) =>
+			context.request.headers.get("user-agent")?.includes(agent),
+		)
+	) {
+		// TODO: return content based on url
+		const entry = await getEntry("pages", "index");
+		if (entry) {
+			return new Response(lip.RenderMD(entry.body), {
+				status: 200,
+				headers: response.headers,
+			});
+		}
 	}
-	return next();
+	return response;
 });
