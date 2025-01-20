@@ -35,13 +35,13 @@ export default defineConfig({
 						default: {
 							value: {
 								base: "#fff",
-								_dark: "#000",
+								_osDark: "#000",
 							},
 						},
 						canvas: {
 							value: {
 								base: "#eee",
-								_dark: "#111",
+								_osDark: "#111",
 							},
 						},
 					},
@@ -49,13 +49,13 @@ export default defineConfig({
 						default: {
 							value: {
 								base: "#000",
-								_dark: "#fff",
+								_osDark: "#fff",
 							},
 						},
 						canvas: {
 							value: {
 								base: "#666",
-								_dark: "#aaa",
+								_osDark: "#aaa",
 							},
 						},
 					},
