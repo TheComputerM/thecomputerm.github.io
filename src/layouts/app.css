@@ -10,11 +10,11 @@
   }
 
   * + * {
-    margin-top: var(--line-height);
+    margin-top: var(--line-heights-normal);
   }
 
   body {
-    line-height: var(--line-height);
+    line-height: var(--line-heights-normal);
   }
 
   h1,
@@ -23,15 +23,15 @@
   h4,
   h5,
   h6 {
-    margin: calc(var(--line-height) * 2) 0 var(--line-height);
-    line-height: var(--line-height);
+    margin: calc(var(--line-heights-normal) * 2) 0 var(--line-heights-normal);
+    line-height: var(--line-heights-normal);
     font-weight: var(--font-weights-bold);
   }
 
   h1 {
     font-size: 2rem;
-    line-height: calc(2 * var(--line-height));
-    margin-bottom: calc(var(--line-height) * 2);
+    line-height: calc(2 * var(--line-heights-normal));
+    margin-bottom: calc(var(--line-heights-normal) * 2);
     text-transform: uppercase;
   }
 
@@ -43,8 +43,8 @@
   hr {
     position: relative;
     display: block;
-    height: var(--line-height);
-    margin: calc(var(--line-height) * 1.5) 0;
+    height: var(--line-heights-normal);
+    margin: calc(var(--line-heights-normal) * 1.5) 0;
     border: none;
     color: var(--colors-fg-default);
   }
@@ -53,16 +53,16 @@
     display: block;
     content: "";
     position: absolute;
-    top: calc(var(--line-height) / 2 - var(--border-thickness));
+    top: calc(var(--line-heights-normal) / 2 - var(--border-widths-normal));
     left: 0;
     width: 100%;
-    border-top: calc(var(--border-thickness) * 3) double var(--colors-fg-default);
+    border-top: calc(var(--border-widths-normal) * 3) double var(--colors-fg-default);
     height: 0;
   }
 
   a {
     text-decoration: underline;
-    text-decoration-thickness: var(--border-thickness);
+    text-decoration-thickness: var(--border-widths-normal);
   }
 
   a:link,
@@ -71,7 +71,7 @@
   }
 
   p {
-    margin-bottom: var(--line-height);
+    margin-bottom: var(--line-heights-normal);
   }
 
   strong {
@@ -94,24 +94,24 @@
 
   table {
     position: relative;
-    top: calc(var(--line-height) / 2);
+    top: calc(var(--line-heights-normal) / 2);
     width: calc(round(down, 100%, 1ch));
     border-collapse: collapse;
-    margin: 0 0 calc(var(--line-height) * 2);
+    margin: 0 0 calc(var(--line-heights-normal) * 2);
   }
 
   th,
   td {
-    border: var(--border-thickness) solid var(--colors-fg-default);
+    border: var(--border-widths-normal) solid var(--colors-fg-default);
     padding:
-      calc((var(--line-height) / 2)) calc(1ch - var(--border-thickness) / 2) calc((var(--line-height) / 2) - (var(--border-thickness)));
-    line-height: var(--line-height);
+      calc((var(--line-heights-normal) / 2)) calc(1ch - var(--border-widths-normal) / 2) calc((var(--line-heights-normal) / 2) - (var(--border-widths-normal)));
+    line-height: var(--line-heights-normal);
     vertical-align: top;
     text-align: left;
   }
 
   table tbody tr:first-child>* {
-    padding-top: calc((var(--line-height) / 2) - var(--border-thickness));
+    padding-top: calc((var(--line-heights-normal) / 2) - var(--border-widths-normal));
   }
 
 
@@ -139,9 +139,9 @@
   }
 
   details {
-    border: var(--border-thickness) solid var(--colors-fg-default);
-    padding: calc(var(--line-height) - var(--border-thickness)) 1ch;
-    margin-bottom: var(--line-height);
+    border: var(--border-widths-normal) solid var(--colors-fg-default);
+    padding: calc(var(--line-heights-normal) - var(--border-widths-normal)) 1ch;
+    margin-bottom: var(--line-heights-normal);
   }
 
   summary {
@@ -150,7 +150,7 @@
   }
 
   details[open] summary {
-    margin-bottom: var(--line-height);
+    margin-bottom: var(--line-heights-normal);
   }
 
   details ::marker {
@@ -170,7 +170,7 @@
   pre {
     white-space: pre;
     overflow-x: auto;
-    margin: var(--line-height) 0;
+    margin: var(--line-heights-normal) 0;
     overflow-y: hidden;
   }
 
@@ -179,7 +179,7 @@
   }
 
   figure {
-    margin: calc(var(--line-height) * 2) 3ch;
+    margin: calc(var(--line-heights-normal) * 2) 3ch;
     overflow-x: auto;
     overflow-y: hidden;
   }
@@ -187,13 +187,13 @@
   figcaption {
     display: block;
     font-style: italic;
-    margin-top: var(--line-height);
+    margin-top: var(--line-heights-normal);
   }
 
   ul,
   ol {
     padding: 0;
-    margin: 0 0 var(--line-height);
+    margin: 0 0 var(--line-heights-normal);
   }
 
   ul {
@@ -231,6 +231,6 @@
   }
 
   ::-webkit-scrollbar {
-    height: var(--line-height);
+    height: var(--line-heights-normal);
   }
 }

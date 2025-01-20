@@ -21,6 +21,14 @@ export default defineConfig({
 			},
 		},
 		extend: {
+			tokens: {
+				borderWidths: {
+					normal: { value: "2px" },
+				},
+				lineHeights: {
+					normal: { value: "1.2rem" },
+				}
+			},
 			semanticTokens: {
 				colors: {
 					bg: {
@@ -59,8 +67,6 @@ export default defineConfig({
 	globalVars: {
 		"--global-font-body": "JetBrains Mono Variable, monospace",
 		"--global-font-mono": "JetBrains Mono Variable, monospace",
-		"--line-height": "1.20rem",
-		"--border-thickness": "2px",
 	},
 
 	// The output directory for your css system
