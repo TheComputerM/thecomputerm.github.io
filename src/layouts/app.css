@@ -112,7 +112,6 @@
 	table {
 		position: relative;
 		top: calc(var(--line-heights-normal) / 2);
-		width: calc(round(down, 100%, 1ch));
 		border-collapse: collapse;
 		margin: 0 0 calc(var(--line-heights-normal) * 2);
 	}

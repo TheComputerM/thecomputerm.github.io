@@ -1,5 +1,5 @@
 import { GraphQLClient, gql } from "graphql-request";
-import type { AllPostsData, PostData } from "./schema";
+import type { AllPostsData } from "./schema";
 
 export const getClient = () => {
 	return new GraphQLClient("https://gql.hashnode.com");
@@ -24,23 +24,17 @@ export const getAllPosts = async () => {
             edges {
               node {
                 id
-                author{
-                  name
-                  profilePicture
-                }
                 title
                 subtitle
-                brief
                 slug
+                publishedAt
+                readTimeInMinutes
                 coverImage {
                   url
                 }
                 tags {
                   name
-                  slug
                 }
-                publishedAt
-                readTimeInMinutes
               }
             }
           }
@@ -52,34 +46,24 @@ export const getAllPosts = async () => {
 	return allPosts;
 };
 
-export const getPost = async (slug: string) => {
+export const getPostHTML = async (slug: string) => {
 	const client = getClient();
 
-	const data = await client.request<PostData>(
+	const data = await client.request<{
+		publication: {
+			post: {
+				content: {
+					html: string;
+				};
+			};
+		};
+	}>(
 		gql`
       query postDetails($slug: String!) {
         publication(host: "${myHashnodeURL}") {
-          id
           post(slug: $slug) {
-            id
-            author{
-              name
-              profilePicture
-            }
-            publishedAt
-            title
-            subtitle
-            readTimeInMinutes
             content{
               html
-              markdown
-            }
-            tags {
-              name
-              slug
-            }
-            coverImage {
-              url
             }
           }
         }
@@ -88,5 +72,5 @@ export const getPost = async (slug: string) => {
 		{ slug: slug },
 	);
 
-	return data.publication.post;
+	return data.publication.post.content.html;
 };

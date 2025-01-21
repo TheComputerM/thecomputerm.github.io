@@ -1,5 +1,6 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
+import { hashnodeLoader } from "./content/blog/loader";
 
 const pages = defineCollection({
 	loader: glob({ pattern: "**/[^_]*.md", base: "./src/content/pages" }),
@@ -8,4 +9,8 @@ const pages = defineCollection({
 	}),
 });
 
-export const collections = { pages };
+const blog = defineCollection({
+	loader: hashnodeLoader()
+});
+
+export const collections = { pages, blog };

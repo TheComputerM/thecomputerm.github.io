@@ -6,6 +6,9 @@
 		"baseUrl": ".",
 		"jsx": "preserve",
 		"jsxImportSource": "solid-js",
-		"types": ["unplugin-icons/types/solid"]
+		"types": ["unplugin-icons/types/solid"],
+		"paths": {
+			"~/*": ["src/*"],
+		}
 	}
 }

@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+import MDContainer from "~/components/MDContainer.astro";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+const posts = await getCollection("blog");
+---
+
+<BaseLayout>
+  <MDContainer>
+    <h1>Blog</h1>
+    <ul>
+      <li>
+        <a href="https://thecomputerm.hashnode.dev/rss.xml" target="_blank">RSS</a>
+      </li>
+      <li>
+        <a href="https://thecomputerm.hashnode.dev/" target="_blank">Hashnode (Canonical)</a>
+      </li>
+    </ul>
+    <hr />
+    <ol>
+      {
+        posts.map((post) => (
+          <li>
+            <a href={`/blog/${post.id}`}>{post.data.title}</a>
+          </li>
+        ))
+      }
+    </ol>
+  </MDContainer>
+</BaseLayout>

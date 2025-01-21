@@ -1,0 +1,67 @@
+---
+import { getEntry } from "astro:content";
+import { css } from "styled-system/css";
+import MDContainer from "~/components/MDContainer.astro";
+import { getPostHTML } from "~/content/blog/client";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+
+const { slug } = Astro.params;
+if (!slug) {
+  throw Error("How is slug in blog undefined???")
+}
+
+const entry = await getEntry("blog", slug);
+if (!entry) {
+  return Astro.redirect("/404");
+}
+
+const post = entry.data;
+const content = await getPostHTML(slug);
+---
+
+<BaseLayout>
+  <Fragment slot="head">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+  </Fragment>
+  <MDContainer>
+    <br />
+    <table>
+      <tr>
+        <th colspan="2">
+          <h1 class={css({ margin: 0 })}>{post.title}</h1>
+          <p class={css({ margin: 0, color: "fg.canvas" })}>{post.subtitle}</p>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          {post.readTimeInMinutes} min read
+        </td>
+        <td>
+          {new Date(post.publishedAt).toLocaleDateString()}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          {post.tags.map((tag) => tag.name).join(", ")}
+        </td>
+        <td>
+          TheComputerM
+        </td>
+      </tr>
+    </table>
+    <img src={post.coverImage.url} alt={post.title} />
+    <br />
+    <Fragment set:html={content} />
+  </MDContainer>
+</BaseLayout>
+
+<style>
+  img {
+    filter: grayscale(1);
+    transition: filter 250ms;
+  }
+
+  img:hover {
+    filter: grayscale(0);
+  }
+</style>
