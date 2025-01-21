@@ -10,7 +10,7 @@ const pages = defineCollection({
 });
 
 const blog = defineCollection({
-	loader: hashnodeLoader()
+	loader: hashnodeLoader(),
 });
 
 export const collections = { pages, blog };

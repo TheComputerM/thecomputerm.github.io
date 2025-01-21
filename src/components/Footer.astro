@@ -6,14 +6,14 @@ import { Container } from "styled-system/jsx";
 <footer>
   <Container>
     <HStack borderTopWidth="normal" py="4" justify="space-between">
-      <span>TheComputerM</span>
+      <span class="caret-blink">TheComputerM</span>
       {new Date().getFullYear()}
     </HStack>
   </Container>
 </footer>
 
 <style>
-  span {
+  .caret-blink {
     font-weight: 900;
     font-size: 1.25rem;
   }
@@ -24,7 +24,7 @@ import { Container } from "styled-system/jsx";
     }
   }
 
-  span::after {
+  .caret-blink::after {
     content: "\2593";
     color: #c3e88d;
     margin-left: 2px;

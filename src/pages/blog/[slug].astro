@@ -7,12 +7,12 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 
 const { slug } = Astro.params;
 if (!slug) {
-  throw Error("How is slug in blog undefined???")
+	throw Error("How is slug in blog undefined???");
 }
 
 const entry = await getEntry("blog", slug);
 if (!entry) {
-  return Astro.redirect("/404");
+	return Astro.redirect("/404");
 }
 
 const post = entry.data;
