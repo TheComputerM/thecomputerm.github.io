@@ -1,6 +1,6 @@
 import { getEntry } from "astro:content";
 import { defineMiddleware } from "astro:middleware";
-import { initLip, Lipgloss } from "charsm";
+import { Lipgloss, initLip } from "charsm";
 
 const isLipgloss = await initLip();
 if (!isLipgloss) {

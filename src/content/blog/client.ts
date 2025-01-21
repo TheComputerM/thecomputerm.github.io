@@ -1,4 +1,4 @@
-import { gql, GraphQLClient } from "graphql-request";
+import { GraphQLClient, gql } from "graphql-request";
 import type { AllPostsData, PostData } from "./schema";
 
 export const getClient = () => {

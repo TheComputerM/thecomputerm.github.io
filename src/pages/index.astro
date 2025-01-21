@@ -1,7 +1,7 @@
 ---
-import Layout from "../layouts/BaseLayout.astro";
 import { getEntry, render } from "astro:content";
 import MDContainer from "src/components/MDContainer.astro";
+import Layout from "../layouts/BaseLayout.astro";
 const entry = await getEntry("pages", "index");
 
 if (!entry) {
