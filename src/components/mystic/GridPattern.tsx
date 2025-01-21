@@ -1,6 +1,7 @@
 import {
 	type Component,
 	For,
+	type JSX,
 	Show,
 	createUniqueId,
 	mergeProps,
@@ -8,7 +9,7 @@ import {
 } from "solid-js";
 import { css, cx } from "styled-system/css";
 
-export interface GridPatternProps {
+export interface GridPatternProps extends JSX.SvgSVGAttributes<SVGSVGElement> {
 	class?: string;
 	height?: number;
 	squares?: Array<[x: number, y: number]>;

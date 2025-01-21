@@ -2,9 +2,10 @@
 import { css } from "styled-system/css";
 import { Box, Container } from "styled-system/jsx";
 import { GridPattern } from "./mystic/GridPattern";
+import { token } from "styled-system/tokens";
 ---
 
-<Box position="relative" py="8">
+<Box position="relative" py="16">
   <Container display="grid" placeContent="center">
     <Box
       backgroundColor="bg.default"
@@ -23,7 +24,9 @@ import { GridPattern } from "./mystic/GridPattern";
     height={30}
     class={css({
       zIndex: "-1",
-      maskImage: "linear-gradient(to right,white,transparent,white)",
     })}
+    style={{
+      "mask-image": `radial-gradient(calc(${token.var("sizes.prose")} + 1.5rem) circle,white,transparent)`,
+    }}
   />
 </Box>

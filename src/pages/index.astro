@@ -2,6 +2,7 @@
 import { getEntry, render } from "astro:content";
 import MDContainer from "src/components/MDContainer.astro";
 import Layout from "../layouts/BaseLayout.astro";
+import { Center } from "styled-system/jsx";
 const entry = await getEntry("pages", "index");
 
 if (!entry) {
@@ -12,7 +13,48 @@ const { Content } = await render(entry);
 ---
 
 <Layout>
+	<Center class="banner" height="md">
+		<h1 class="title">TCM</h1>
+	</Center>
 	<MDContainer>
 		<Content />
 	</MDContainer>
 </Layout>
+
+<style>
+	.title {
+		font-size: max(150px, 30vw);
+		user-select: none;
+		color: #c792ea;
+		text-shadow:
+			3px 0 6px #f07178,
+			-3px 0 6px #82aaff;
+	}
+
+	.banner {
+		position: relative;
+	}
+
+	.banner::before {
+		content: "";
+		display: block;
+		position: absolute;
+		inset: 0;
+		z-index: 2;
+		pointer-events: none;
+
+		background: linear-gradient(
+				rgba(18, 16, 16, 0) 50%,
+				rgba(0, 0, 0, 0.25) 50%
+			),
+			linear-gradient(
+				90deg,
+				rgba(255, 0, 0, 0.06),
+				rgba(0, 255, 0, 0.02),
+				rgba(0, 0, 255, 0.06)
+			);
+		background-size:
+			100% 2px,
+			3px 100%;
+	}
+</style>
