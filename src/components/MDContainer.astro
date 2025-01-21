@@ -1,11 +1,13 @@
 ---
 import { css } from "styled-system/css";
-import { Box, Center, Container } from "styled-system/jsx";
+import { Box, Container } from "styled-system/jsx";
+import { GridPattern } from "./mystic/GridPattern";
 ---
 
-<Container>
-  <Center>
+<Box position="relative" py="8">
+  <Container display="grid" placeContent="center">
     <Box
+      backgroundColor="bg.default"
       borderWidth="normal"
       px="8"
       boxShadowColor="fg.canvas"
@@ -15,5 +17,13 @@ import { Box, Center, Container } from "styled-system/jsx";
         <slot />
       </main>
     </Box>
-  </Center>
-</Container>
+  </Container>
+  <GridPattern
+    width={30}
+    height={30}
+    class={css({
+      zIndex: "-1",
+      maskImage: "linear-gradient(to right,white,transparent,white)",
+    })}
+  />
+</Box>
