@@ -74,3 +74,32 @@ export const getPostHTML = async (slug: string) => {
 
 	return data.publication.post.content.html;
 };
+
+export const getPostMarkdown = async (slug: string) => {
+	const client = getClient();
+
+	const data = await client.request<{
+		publication: {
+			post: {
+				content: {
+					markdown: string;
+				};
+			};
+		};
+	}>(
+		gql`
+      query postDetails($slug: String!) {
+        publication(host: "${myHashnodeURL}") {
+          post(slug: $slug) {
+            content{
+              markdown
+            }
+          }
+        }
+      }
+    `,
+		{ slug: slug },
+	);
+
+	return data.publication.post.content.markdown;
+};
