@@ -1,7 +1,9 @@
 ---
 import { getEntry, render } from "astro:content";
 import MDContainer from "src/components/MDContainer.astro";
-import { Center } from "styled-system/jsx";
+import { Box, Center, Stack } from "styled-system/jsx";
+import { BorderBeam } from "~/components/mystic/BorderBeam";
+import { TermViewCommand } from "~/components/ui/TermViewCommand";
 import Layout from "../layouts/BaseLayout.astro";
 const entry = await getEntry("pages", "index");
 
@@ -13,8 +15,15 @@ const { Content } = await render(entry);
 ---
 
 <Layout>
-	<Center class="banner" height="md">
-		<h1 class="title">TCM</h1>
+	<Center class="banner">
+		<Stack align="center">
+			<h1 class="title">TCM</h1>
+			<Box position="relative" px="4" py="2" backgroundColor="bg.canvas">
+				<TermViewCommand client:idle value={Astro.url.href} />
+				<BorderBeam size={64} />
+			</Box>
+			<br />
+		</Stack>
 	</Center>
 	<MDContainer>
 		<Content />
@@ -23,12 +32,14 @@ const { Content } = await render(entry);
 
 <style>
 	.title {
-		font-size: max(150px, 30vw);
+		text-align: center;
+		font-size: max(150px, 24vw);
+		line-height: 1em;
 		user-select: none;
 		color: #c792ea;
 		text-shadow:
-			3px 0 6px #f07178,
-			-3px 0 6px #82aaff;
+			4px 0 6px #f07178,
+			-4px 0 6px #82aaff;
 	}
 
 	.banner {
@@ -56,5 +67,11 @@ const { Content } = await render(entry);
 		background-size:
 			100% 2px,
 			3px 100%;
+	}
+
+	@keyframes border-beam {
+		100% {
+			offset-distance: 100%;
+		}
 	}
 </style>

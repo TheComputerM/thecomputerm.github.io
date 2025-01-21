@@ -253,4 +253,8 @@
 		display: none;
 		/* height: var(--line-heights-normal); */
 	}
+
+	input:focus {
+		outline: none;
+	}
 }

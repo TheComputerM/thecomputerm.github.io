@@ -2,8 +2,10 @@
 import { getEntry } from "astro:content";
 import { css } from "styled-system/css";
 import MDContainer from "~/components/MDContainer.astro";
+import { TermViewCommand } from "~/components/ui/TermViewCommand";
 import { getPostHTML } from "~/content/blog/client";
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import TablerExternalLink from "~icons/tabler/external-link";
 
 const { slug } = Astro.params;
 if (!slug) {
@@ -21,7 +23,10 @@ const content = await getPostHTML(slug);
 
 <BaseLayout>
   <Fragment slot="head">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
+    />
   </Fragment>
   <MDContainer>
     <br />
@@ -34,10 +39,10 @@ const content = await getPostHTML(slug);
       </tr>
       <tr>
         <td>
-          {post.readTimeInMinutes} min read
+          {new Date(post.publishedAt).toDateString()}
         </td>
         <td>
-          {new Date(post.publishedAt).toLocaleDateString()}
+          {post.readTimeInMinutes} min read
         </td>
       </tr>
       <tr>
@@ -45,7 +50,24 @@ const content = await getPostHTML(slug);
           {post.tags.map((tag) => tag.name).join(", ")}
         </td>
         <td>
-          TheComputerM
+          <a
+            href={`https://thecomputerm.hashnode.dev/${slug}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={css({
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "1",
+            })}
+          >
+            Canonical
+            <TablerExternalLink />
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <TermViewCommand client:idle value={Astro.url.href} />
         </td>
       </tr>
     </table>
