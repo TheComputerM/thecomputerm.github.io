@@ -20,9 +20,9 @@
     font-variant-numeric: tabular-nums lining-nums;
   }
 
-  *+* {
+  /* *+* {
     margin-top: var(--line-heights-normal);
-  }
+  } */
 
   body {
     line-height: var(--line-heights-normal);
@@ -248,6 +248,7 @@
   }
 
   ::-webkit-scrollbar {
-    height: var(--line-heights-normal);
+    display: none;
+    /* height: var(--line-heights-normal); */
   }
 }

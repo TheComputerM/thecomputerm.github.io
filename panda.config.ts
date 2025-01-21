@@ -11,15 +11,10 @@ export default defineConfig({
 	// Files to exclude
 	exclude: [],
 
+	presets: ["@pandacss/preset-panda"],
+
 	// Useful for theme customization
 	theme: {
-		tokens: {
-			fontWeights: {
-				normal: { value: "500" },
-				medium: { value: "600" },
-				bold: { value: "800" },
-			},
-		},
 		extend: {
 			tokens: {
 				borderWidths: {
@@ -27,7 +22,12 @@ export default defineConfig({
 				},
 				lineHeights: {
 					normal: { value: "1.2rem" },
-				}
+				},
+				fontWeights: {
+					normal: { value: "500" },
+					medium: { value: "600" },
+					bold: { value: "800" },
+				},
 			},
 			semanticTokens: {
 				colors: {
@@ -70,7 +70,7 @@ export default defineConfig({
 	},
 	hash: {
 		cssVar: false,
-		className: true
+		className: false,
 	},
 
 	// The output directory for your css system
