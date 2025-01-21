@@ -1,14 +1,19 @@
 ---
-import { Container } from "styled-system/jsx";
+import { css } from "styled-system/css";
+import { Box, Center, Container } from "styled-system/jsx";
 ---
 
-<Container
-  maxWidth="breakpoint-md"
-  px="2rem"
-  marginY="2rem"
-  borderWidth="normal"
-  boxShadow="8px 8px 0 0 var(--shadow-color)"
-  boxShadowColor="fg.canvas"
->
-  <slot />
+<Container>
+  <Center>
+    <Box
+      borderWidth="normal"
+      px="8"
+      boxShadowColor="fg.canvas"
+      boxShadow={{ sm: "8px 8px 0 0 var(--shadow-color)" }}
+    >
+      <main class={css({ maxWidth: "prose" })}>
+        <slot />
+      </main>
+    </Box>
+  </Center>
 </Container>

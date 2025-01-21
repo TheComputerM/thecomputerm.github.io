@@ -1,0 +1,25 @@
+---
+import { css } from "styled-system/css";
+import { Container, HStack } from "styled-system/jsx";
+import TablerHomeFilled from "~icons/tabler/home-filled";
+import TablerBrandGithubFilled from '~icons/tabler/brand-github-filled'
+import TablerBrandLinkedinFilled from '~icons/tabler/brand-linkedin-filled'
+---
+
+<nav class={css({ borderBottomWidth: "normal", marginBottom: "8" })}>
+  <Container>
+    <HStack py="2" justify="space-between">
+      <a href="/" aria-label="Home">
+        <TablerHomeFilled />
+      </a>
+      <HStack>
+        <a href="https://github.com/TheComputerM" target="_blank" aria-label="GitHub">
+          <TablerBrandGithubFilled />
+        </a>
+        <a href="https://www.linkedin.com/in/mudit-somani2004/" target="_blank" aria-label="LinkedIn">
+          <TablerBrandLinkedinFilled />
+        </a>
+      </HStack>
+    </HStack>
+  </Container>
+</nav>

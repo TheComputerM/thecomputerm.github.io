@@ -1,0 +1,35 @@
+---
+import { css } from "styled-system/css";
+import { HStack } from "styled-system/jsx";
+import { Container } from "styled-system/jsx";
+---
+
+<footer class={css({ marginTop: "16" })}>
+  <Container>
+    <HStack borderTopWidth="normal" py="4" justify="space-between">
+      <span>TheComputerM</span>
+      {new Date().getFullYear()}
+    </HStack>
+  </Container>
+</footer>
+
+<style>
+  span {
+    font-weight: 900;
+    font-size: 1.25rem;
+  }
+
+  @keyframes blink {
+    100% {
+      visibility: hidden;
+    }
+  }
+
+  span::after {
+    content: "\2593";
+    color: #c3e88d;
+    margin-left: 2px;
+    text-shadow: 0 0 5px currentColor;
+    animation: blink 2s steps(2, start) infinite;
+  }
+</style>
