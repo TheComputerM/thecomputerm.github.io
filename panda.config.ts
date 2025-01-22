@@ -63,6 +63,10 @@ export default defineConfig({
 		},
 	},
 	globalCss: {
+		'*': {
+			scrollbarColor: "var(--colors-fg-default) transparent",
+			scrollbarWidth: "thin",
+		},
 		":root": {
 			fontWeight: "normal",
 			fontSize: "14px",
@@ -76,8 +80,10 @@ export default defineConfig({
 		},
 		h1: {
 			fontSize: "1.5rem",
+			lineHeight: "calc(1.5 * var(--line-heights-normal))",
 			sm: {
 				fontSize: "2rem",
+				lineHeight: "calc(2 * var(--line-heights-normal))"
 			}
 		}
 	},

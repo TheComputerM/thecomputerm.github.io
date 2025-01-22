@@ -19,10 +19,6 @@
 		font-variant-numeric: tabular-nums lining-nums;
 	}
 
-	/* *+* {
-    margin-top: var(--line-heights-normal);
-  } */
-
 	body {
 		line-height: var(--line-heights-normal);
 	}
@@ -39,7 +35,6 @@
 	}
 
 	h1 {
-		line-height: calc(2 * var(--line-heights-normal));
 		margin-bottom: calc(var(--line-heights-normal) * 2);
 		text-transform: uppercase;
 	}
@@ -246,11 +241,6 @@
 
 	li::marker {
 		line-height: 0;
-	}
-
-	::-webkit-scrollbar {
-		display: none;
-		/* height: var(--line-heights-normal); */
 	}
 
 	input:focus {
