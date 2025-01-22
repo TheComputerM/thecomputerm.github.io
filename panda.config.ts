@@ -1,5 +1,4 @@
 import { defineConfig } from "@pandacss/dev";
-import globalCss from "./monospace.styles";
 
 export default defineConfig({
 	// Whether to use css reset
@@ -63,7 +62,19 @@ export default defineConfig({
 			},
 		},
 	},
-	globalCss,
+	globalCss: {
+		":root": {
+			fontWeight: "normal",
+			fontSize: "14px",
+			sm: {
+				fontSize: "16px",
+			},
+		},
+		html: {
+			backgroundColor: "bg.default",
+			color: "fg.default",
+		},
+	},
 	globalVars: {
 		"--global-font-body": "JetBrains Mono Variable, monospace",
 		"--global-font-mono": "JetBrains Mono Variable, monospace",

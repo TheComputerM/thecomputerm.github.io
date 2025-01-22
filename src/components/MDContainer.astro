@@ -2,9 +2,15 @@
 import { css } from "styled-system/css";
 import { Box, Container } from "styled-system/jsx";
 import { GridPattern } from "./mystic/GridPattern";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
 ---
 
-<Box position="relative" py="16">
+<Box position="relative" py="24" class={className}>
   <Container display="grid" placeContent="center">
     <Box
       backgroundColor="bg.default"
@@ -18,14 +24,17 @@ import { GridPattern } from "./mystic/GridPattern";
       </main>
     </Box>
   </Container>
-  <GridPattern
-    width={30}
-    height={30}
-    class={css({
-      zIndex: "-1",
-    })}
-    style={{
-      "mask-image": `linear-gradient(to right,transparent,white,transparent)`,
-    }}
-  />
+  <GridPattern width={30} height={30} class="grid" />
 </Box>
+
+<style>
+  .grid {
+    z-index: -1;
+    mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      white 24rem calc(100% - 24rem),
+      transparent
+    );
+  }
+</style>
