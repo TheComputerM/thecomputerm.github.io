@@ -74,6 +74,12 @@ export default defineConfig({
 			backgroundColor: "bg.default",
 			color: "fg.default",
 		},
+		h1: {
+			fontSize: "1.5rem",
+			sm: {
+				fontSize: "2rem",
+			}
+		}
 	},
 	globalVars: {
 		"--global-font-body": "JetBrains Mono Variable, monospace",

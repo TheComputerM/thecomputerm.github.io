@@ -39,7 +39,6 @@
 	}
 
 	h1 {
-		font-size: 2rem;
 		line-height: calc(2 * var(--line-heights-normal));
 		margin-bottom: calc(var(--line-heights-normal) * 2);
 		text-transform: uppercase;
