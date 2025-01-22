@@ -2,7 +2,7 @@
 import { getEntry, render } from "astro:content";
 import MDContainer from "src/components/MDContainer.astro";
 import { Center, Stack } from "styled-system/jsx";
-import Layout from "~/layouts/BaseLayout.astro";
+import BaseLayout from "~/layouts/BaseLayout.astro";
 const entry = await getEntry("pages", "index");
 
 if (!entry) {
@@ -12,7 +12,7 @@ if (!entry) {
 const { Content } = await render(entry);
 ---
 
-<Layout>
+<BaseLayout title="TheComputerM | Mudit Somani">
 	<Center class="banner">
 		<Stack align="center">
 			<h1 class="title">TCM</h1>
@@ -21,7 +21,7 @@ const { Content } = await render(entry);
 	<MDContainer>
 		<Content />
 	</MDContainer>
-</Layout>
+</BaseLayout>
 
 <style>
 	.title {
