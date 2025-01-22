@@ -2,11 +2,8 @@
 import { getEntry } from "astro:content";
 import { css } from "styled-system/css";
 import MDContainer from "~/components/MDContainer.astro";
-import { TermViewCommand } from "~/components/ui/TermViewCommand";
-import { getPostHTML, getPostMarkdown } from "~/content/blog/client";
+import { getPostHTML } from "~/content/blog/client";
 import BaseLayout from "~/layouts/BaseLayout.astro";
-import { isTextAgent } from "~/utils/detect-text-agent";
-import { renderMD } from "~/utils/render-markdown";
 import TablerExternalLink from "~icons/tabler/external-link";
 
 const { slug } = Astro.params;
@@ -17,13 +14,6 @@ if (!slug) {
 const entry = await getEntry("blog", slug);
 if (!entry) {
 	return Astro.redirect("/404");
-}
-
-if (isTextAgent(Astro.request)) {
-	const content = await getPostMarkdown(slug);
-	return new Response(renderMD(content), {
-		headers: Astro.response.headers,
-	});
 }
 
 const post = entry.data;
@@ -72,11 +62,6 @@ const content = await getPostHTML(slug);
             Canonical
             <TablerExternalLink />
           </a>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">
-          <TermViewCommand client:idle value={Astro.url.href} />
         </td>
       </tr>
     </table>

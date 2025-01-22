@@ -1,23 +1,14 @@
 ---
 import { getEntry, render } from "astro:content";
 import MDContainer from "src/components/MDContainer.astro";
-import { Box, Center, Stack } from "styled-system/jsx";
-import { BorderBeam } from "~/components/mystic/BorderBeam";
-import { TermViewCommand } from "~/components/ui/TermViewCommand";
+import { Center, Stack } from "styled-system/jsx";
 import Layout from "~/layouts/BaseLayout.astro";
-import { isTextAgent } from "~/utils/detect-text-agent";
-import { renderMD } from "~/utils/render-markdown";
 const entry = await getEntry("pages", "index");
 
 if (!entry) {
 	return Astro.redirect("/404");
 }
 
-if (isTextAgent(Astro.request)) {
-	return new Response(renderMD(entry.body), {
-		headers: Astro.response.headers,
-	});
-}
 
 const { Content } = await render(entry);
 ---
@@ -26,11 +17,6 @@ const { Content } = await render(entry);
 	<Center class="banner">
 		<Stack align="center">
 			<h1 class="title">TCM</h1>
-			<Box position="relative" px="4" py="2" backgroundColor="bg.canvas">
-				<TermViewCommand client:idle value={Astro.url.href} />
-				<BorderBeam size={64} />
-			</Box>
-			<br />
 		</Stack>
 	</Center>
 	<MDContainer>
@@ -44,10 +30,10 @@ const { Content } = await render(entry);
 		font-size: max(150px, 24vw);
 		line-height: 1em;
 		user-select: none;
-		color: #c792ea;
+		color: #663399;
 		text-shadow:
-			4px 0 6px #f07178,
-			-4px 0 6px #82aaff;
+			4px 0 6px #ff0000,
+			-4px 0 6px #0000ff;
 	}
 
 	.banner {
