@@ -6,7 +6,7 @@ import { BorderBeam } from "~/components/mystic/BorderBeam";
 import { TermViewCommand } from "~/components/ui/TermViewCommand";
 import Layout from "~/layouts/BaseLayout.astro";
 import { isTextAgent } from "~/utils/detect-text-agent";
-import { lip } from "~/utils/lipgloss";
+import { renderMD } from "~/utils/render-markdown";
 const entry = await getEntry("pages", "index");
 
 if (!entry) {
@@ -14,7 +14,7 @@ if (!entry) {
 }
 
 if (isTextAgent(Astro.request)) {
-	return new Response(lip.RenderMD(entry.body), {
+	return new Response(renderMD(entry.body), {
 		headers: Astro.response.headers,
 	});
 }

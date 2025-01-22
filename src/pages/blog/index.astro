@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import MDContainer from "~/components/MDContainer.astro";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { isTextAgent } from "~/utils/detect-text-agent";
-import { lip } from "~/utils/lipgloss";
+import { renderMD } from "~/utils/render-markdown";
 const posts = await getCollection("blog");
 
 if (isTextAgent(Astro.request)) {
@@ -17,7 +17,7 @@ if (isTextAgent(Astro.request)) {
   ${posts.map((post, i) => `${i + 1}. [${post.data.title}](/blog/${post.id})`).join("\n")}
   `;
 
-	return new Response(lip.RenderMD(content), {
+	return new Response(renderMD(content), {
 		headers: Astro.response.headers,
 	});
 }

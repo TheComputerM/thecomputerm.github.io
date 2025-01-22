@@ -1,9 +1,8 @@
 // @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 import solidJs from "@astrojs/solid-js";
 import Icons from "unplugin-icons/vite";
-
-import node from "@astrojs/node";
+import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,7 +22,7 @@ export default defineConfig({
 		plugins: [Icons({ compiler: "solid" })],
 	},
 
-	adapter: node({
-		mode: "standalone",
+	adapter: cloudflare({
+		imageService: 'passthrough'
 	}),
 });
