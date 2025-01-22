@@ -13,8 +13,8 @@
   },
   "dependencies": {
     "@ark-ui/solid": "^4.9.0",
+    "@astrojs/node": "^9.0.1",
     "@astrojs/solid-js": "^5.0.4",
-    "@astrojs/vercel": "^8.0.2",
     "@fontsource-variable/jetbrains-mono": "^5.1.2",
     "astro": "^5.1.8",
     "charsm": "^0.2.0",

@@ -3,7 +3,7 @@ import { defineConfig } from "astro/config";
 import solidJs from "@astrojs/solid-js";
 import Icons from "unplugin-icons/vite";
 
-import vercel from "@astrojs/vercel";
+import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,5 +23,7 @@ export default defineConfig({
 		plugins: [Icons({ compiler: "solid" })],
 	},
 
-	adapter: vercel(),
+	adapter: node({
+		mode: "standalone",
+	}),
 });
