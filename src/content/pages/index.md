@@ -4,7 +4,7 @@ title: TheComputerM
 
 ## Hey there
 
-I am Mudit Somani aka TheComputerM. I'm currently a student at [BITS Pilani](https://www.bits-pilani.ac.in/hyderabad/) studying computer science. I love to code and learn how various technologies function. I occasionally blog about things which I find interesting and/or helpful. I read books and play badminton in my spare time.
+I am Mudit Somani aka TheComputerM. I'm currently a student at [BITS Pilani](https://www.bits-pilani.ac.in/hyderabad/) studying computer science. I love to code and learn how various technologies function. I occasionally [blog](/blog) about things which I find interesting and/or helpful. I read books and play badminton in my spare time.
 
 ## About Me
 
