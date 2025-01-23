@@ -7,7 +7,6 @@ const pages = {
 	},
 };
 
-
 export const { getStaticPaths, GET } = OGImageRoute({
 	param: "route",
 	pages: pages,
@@ -16,12 +15,14 @@ export const { getStaticPaths, GET } = OGImageRoute({
 		return {
 			title: page.title,
 			description: page.description,
-      fonts: ["https://cdn.jsdelivr.net/fontsource/fonts/ibm-plex-mono@latest/latin-500-normal.ttf"],
-      font: {
-        title: {
-          families: ["IBM Plex Mono"],
-        }
-      }
+			fonts: [
+				"https://cdn.jsdelivr.net/fontsource/fonts/ibm-plex-mono@latest/latin-500-normal.ttf",
+			],
+			font: {
+				title: {
+					families: ["IBM Plex Mono"],
+				},
+			},
 		};
 	},
 });

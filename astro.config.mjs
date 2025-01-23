@@ -2,7 +2,6 @@
 import { defineConfig } from "astro/config";
 import solidJs from "@astrojs/solid-js";
 import Icons from "unplugin-icons/vite";
-import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
@@ -21,8 +20,4 @@ export default defineConfig({
 	vite: {
 		plugins: [Icons({ compiler: "solid" })],
 	},
-
-	adapter: cloudflare({
-		imageService: "passthrough",
-	}),
 });

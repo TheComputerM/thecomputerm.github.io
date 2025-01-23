@@ -7,13 +7,12 @@
     "prepare": "panda codegen",
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "wrangler pages dev ./dist",
+    "preview": "astro preview",
     "astro": "astro",
     "check": "biome check src"
   },
   "dependencies": {
     "@ark-ui/solid": "^4.9.0",
-    "@astrojs/cloudflare": "^12.2.0",
     "@astrojs/solid-js": "^5.0.4",
     "@fontsource-variable/jetbrains-mono": "^5.1.2",
     "astro": "^5.1.8",
