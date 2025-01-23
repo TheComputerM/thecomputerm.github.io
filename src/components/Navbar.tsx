@@ -2,9 +2,8 @@ import { Tooltip } from "@ark-ui/solid";
 import type { Component, JSX, ParentComponent } from "solid-js";
 import { Portal } from "solid-js/web";
 import { css } from "styled-system/css";
-import { Container, HStack } from "styled-system/jsx";
+import { Container, Divider, HStack } from "styled-system/jsx";
 import { tooltip } from "~/styles/tooltip";
-import TablerBallpenFilled from "~icons/tabler/ballpen-filled";
 import TablerBrandGithubFilled from "~icons/tabler/brand-github-filled";
 import TablerBrandLinkedinFilled from "~icons/tabler/brand-linkedin-filled";
 import TablerHomeFilled from "~icons/tabler/home-filled";
@@ -41,6 +40,8 @@ const Navbar: Component = () => {
 						<TablerHomeFilled />
 					</NavItem>
 					<HStack gap="4">
+						<a href="/blog">Blog</a>
+						<Divider orientation="vertical" thickness="2" height="1em" />
 						<NavItem
 							href="https://github.com/TheComputerM"
 							target="_blank"
@@ -48,9 +49,6 @@ const Navbar: Component = () => {
 							aria-label="GitHub"
 						>
 							<TablerBrandGithubFilled />
-						</NavItem>
-						<NavItem href="/blog" aria-label="Blog">
-							<TablerBallpenFilled />
 						</NavItem>
 						<NavItem
 							href="https://www.linkedin.com/in/mudit-somani2004/"
