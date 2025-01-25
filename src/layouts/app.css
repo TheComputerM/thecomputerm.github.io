@@ -81,7 +81,7 @@
 		color: var(--colors-bg-canvas);
 	}
 
-	p {
+	p:not(:last-child) {
 		margin-bottom: var(--line-heights-normal);
 	}
 

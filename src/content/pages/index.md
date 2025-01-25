@@ -19,5 +19,3 @@ Today I enjoy developing applications and finding optimized solutions to complex
 ## Contact Me
 
 Feel free to email me at [mudit.somani00@gmail.com](mailto:mudit.somani00@gmail.com)
-
------

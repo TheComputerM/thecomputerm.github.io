@@ -40,6 +40,7 @@ const Navbar: Component = () => {
 						<TablerHomeFilled />
 					</NavItem>
 					<HStack gap="4">
+						<a href="/projects">Projects</a>
 						<a href="/blog">Blog</a>
 						<Divider orientation="vertical" thickness="2" height="1em" />
 						<NavItem

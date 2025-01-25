@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+import { css } from "styled-system/css";
+import MDContainer from "~/components/MDContainer.astro";
+import ProjectCard from "~/components/ProjectCard.astro";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+
+const projects = await getCollection("projects");
+---
+
+<BaseLayout title="Projects | TheComputerM">
+  <MDContainer>
+    <h1 class={css({ marginBottom: "2" })}>Projects</h1>
+    <p class={css({ color: "fg.canvas" })}>
+      Some of my most cherished and meticulously developed projects.
+    </p>
+    <hr />
+    {projects.map((project) => <ProjectCard project={project} />)}
+    <hr />
+    <p>
+      See more of my work and other open-source contributions over on my
+      <a href="https://github.com/TheComputerM" target="_blank">GitHub</a>.
+    </p>
+  </MDContainer>
+</BaseLayout>

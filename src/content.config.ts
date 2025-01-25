@@ -13,4 +13,13 @@ const blog = defineCollection({
 	loader: hashnodeLoader(),
 });
 
-export const collections = { pages, blog };
+const projects = defineCollection({
+	loader: glob({ pattern: "**/[^_]*.md", base: "./src/content/projects" }),
+	schema: z.object({
+		name: z.string(),
+		repo: z.string(),
+		homepage: z.string().optional(),
+	}),
+});
+
+export const collections = { pages, blog, projects };

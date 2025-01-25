@@ -1,0 +1,50 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
+import { Grid } from "styled-system/jsx";
+import { octokit } from "~/content/projects/client";
+import { Card } from "./ui/Card";
+
+interface Props {
+	project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const [owner, repoName] = project.data.repo.split("/");
+const { data: repository } = await octokit.request(
+	"GET /repos/{owner}/{repo}",
+	{
+		owner,
+		repo: repoName,
+	},
+);
+
+const homepage = repository.homepage || project.data.homepage;
+
+const { Content } = await render(project);
+---
+
+<h2>{project.data.name}</h2>
+<Grid columns={{ base: 1, sm: 2 }}>
+  <Card title="Description">
+    <Content />
+  </Card>
+  <Card title="Details">
+    <p>
+      <b>GitHub: </b>
+      <a href={`https://github.com/${project.data.repo}`} target="_blank">
+        {project.data.repo}
+      </a>
+    </p>
+    {
+      homepage && (
+        <p>
+          <b>Homepage: </b>
+          <a href={homepage} target="_blank">
+            {homepage}
+          </a>
+        </p>
+      )
+    }
+  </Card>
+</Grid>
