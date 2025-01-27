@@ -15,7 +15,11 @@ const projects = await getCollection("projects");
       Some of my most cherished and meticulously developed projects.
     </p>
     <hr />
-    {projects.map((project) => <ProjectCard project={project} />)}
+    {
+      projects
+        .sort((a, b) => b.data.priority - a.data.priority)
+        .map((project) => <ProjectCard project={project} />)
+    }
     <hr />
     <p>
       See more of my work and other open-source contributions over on my
