@@ -26,6 +26,7 @@ export const getAllPosts = async () => {
                 id
                 title
                 subtitle
+                brief
                 slug
                 publishedAt
                 readTimeInMinutes

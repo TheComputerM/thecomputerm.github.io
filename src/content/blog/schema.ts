@@ -4,6 +4,7 @@ export const PostSchema = z.object({
 	id: z.string(),
 	title: z.string(),
 	subtitle: z.string(),
+	brief: z.string(),
 	slug: z.string(),
 	publishedAt: z.string(),
 	readTimeInMinutes: z.number(),

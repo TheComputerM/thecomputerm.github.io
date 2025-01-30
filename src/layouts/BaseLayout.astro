@@ -6,11 +6,14 @@ import Navbar from "~/components/Navbar";
 
 interface Props {
 	title?: string;
+	description?: string;
 }
 
-const { title = "TheComputerM" } = Astro.props;
+const {
+	title = "TheComputerM",
+	description = "I am Mudit Somani, a CS student at BITS Pilani, GSoC'24 @Dart, Google Code-in '19 @JuliaLang and the president of my college's coding club",
+} = Astro.props;
 ---
-
 
 <!doctype html>
 <html lang="en">
@@ -20,6 +23,7 @@ const { title = "TheComputerM" } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<meta name="description" content={description} />
 		<slot name="head" />
 	</head>
 	<body>

@@ -29,7 +29,7 @@ const post = entry.data;
 const content = await getPostHTML(slug);
 ---
 
-<BaseLayout title={`${post.title} | TheComputerM's Blog`}>
+<BaseLayout title={`${post.title} | TheComputerM's Blog`} description={post.brief}>
   <Fragment slot="head">
     <link
       rel="stylesheet"
