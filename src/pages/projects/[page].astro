@@ -1,11 +1,24 @@
 ---
-import { getCollection } from "astro:content";
+import type { GetStaticPaths, Page } from "astro";
+import { CollectionEntry, getCollection } from "astro:content";
 import { css } from "styled-system/css";
 import MDContainer from "~/components/MDContainer.astro";
 import ProjectCard from "~/components/ProjectCard.astro";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 
-const projects = await getCollection("projects");
+export const getStaticPaths = (async ({ paginate }) => {
+  const projects = (await getCollection("projects")).sort(
+    (a, b) => b.data.priority - a.data.priority,
+  );
+
+  return paginate(projects, { pageSize: 4 });
+}) satisfies GetStaticPaths;
+
+interface Props {
+  page: Page<CollectionEntry<"projects">>;
+}
+
+const { page } = Astro.props;
 ---
 
 <BaseLayout title="Projects | TheComputerM">
@@ -15,11 +28,7 @@ const projects = await getCollection("projects");
       Some of my most cherished and meticulously developed projects.
     </p>
     <hr />
-    {
-      projects
-        .sort((a, b) => b.data.priority - a.data.priority)
-        .map((project) => <ProjectCard project={project} />)
-    }
+    {page.data.map((project) => <ProjectCard project={project} />)}
     <hr />
     <p>
       See more of my work and other open-source contributions over on my
