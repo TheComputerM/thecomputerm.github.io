@@ -1,6 +1,6 @@
 ---
-import type { GetStaticPaths, Page } from "astro";
 import { CollectionEntry, getCollection } from "astro:content";
+import type { GetStaticPaths, Page } from "astro";
 import { css } from "styled-system/css";
 import MDContainer from "~/components/MDContainer.astro";
 import ProjectCard from "~/components/ProjectCard.astro";
@@ -8,15 +8,15 @@ import { ProjectPagination } from "~/components/ProjectPagination";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const projects = (await getCollection("projects")).sort(
-    (a, b) => b.data.priority - a.data.priority,
-  );
+	const projects = (await getCollection("projects")).sort(
+		(a, b) => b.data.priority - a.data.priority,
+	);
 
-  return paginate(projects, { pageSize: 3 });
+	return paginate(projects, { pageSize: 3 });
 }) satisfies GetStaticPaths;
 
 interface Props {
-  page: Page<CollectionEntry<"projects">>;
+	page: Page<CollectionEntry<"projects">>;
 }
 
 const { page } = Astro.props;

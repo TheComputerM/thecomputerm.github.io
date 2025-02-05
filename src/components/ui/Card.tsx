@@ -1,6 +1,6 @@
-import { splitProps, type ParentComponent } from "solid-js";
+import { type ParentComponent, splitProps } from "solid-js";
 import { css } from "styled-system/css";
-import { Box, HStack, type BoxProps } from "styled-system/jsx";
+import { Box, type BoxProps, HStack } from "styled-system/jsx";
 
 interface CardProps extends BoxProps {
 	title: string;

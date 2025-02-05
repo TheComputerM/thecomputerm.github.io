@@ -1,11 +1,11 @@
+import type { CollectionEntry } from "astro:content";
+import { navigate } from "astro:transitions/client";
 import { Pagination } from "@ark-ui/solid";
 import type { Page } from "astro";
-import type { CollectionEntry } from "astro:content";
-import { For, type Component } from "solid-js";
+import { type Component, For } from "solid-js";
+import { paginationStyles } from "~/styles/pagination";
 import TablerChevronLeft from "~icons/tabler/chevron-left";
 import TablerChevronRight from "~icons/tabler/chevron-right";
-import { navigate } from "astro:transitions/client";
-import { paginationStyles } from "~/styles/pagination";
 
 export const ProjectPagination: Component<{
 	page: Page<CollectionEntry<"projects">>;
@@ -26,7 +26,9 @@ export const ProjectPagination: Component<{
 					<For each={api().pages}>
 						{(page, index) =>
 							page.type === "page" ? (
-								<Pagination.Item {...page} class={paginationStyles.item}>{page.value}</Pagination.Item>
+								<Pagination.Item {...page} class={paginationStyles.item}>
+									{page.value}
+								</Pagination.Item>
 							) : (
 								<Pagination.Ellipsis index={index()}>
 									&#8230;
