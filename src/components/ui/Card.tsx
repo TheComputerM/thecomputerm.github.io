@@ -1,8 +1,13 @@
-import type { ParentComponent } from "solid-js";
+import { splitProps, type ParentComponent } from "solid-js";
 import { css } from "styled-system/css";
-import { Box, HStack } from "styled-system/jsx";
+import { Box, HStack, type BoxProps } from "styled-system/jsx";
 
-export const Card: ParentComponent<{ title: string }> = (props) => {
+interface CardProps extends BoxProps {
+	title: string;
+}
+
+export const Card: ParentComponent<CardProps> = (_props) => {
+	const [props, boxProps] = splitProps(_props, ["title", "children"]);
 	const HorizontalLine = (
 		<Box
 			borderTopWidth="normal"
@@ -14,7 +19,7 @@ export const Card: ParentComponent<{ title: string }> = (props) => {
 	);
 
 	return (
-		<Box>
+		<Box {...boxProps}>
 			<HStack alignItems="end">
 				{HorizontalLine}
 				<span class={css({ marginBottom: "-0.5em" })}>{props.title}</span>

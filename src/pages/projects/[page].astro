@@ -4,6 +4,7 @@ import { CollectionEntry, getCollection } from "astro:content";
 import { css } from "styled-system/css";
 import MDContainer from "~/components/MDContainer.astro";
 import ProjectCard from "~/components/ProjectCard.astro";
+import { ProjectPagination } from "~/components/ProjectPagination";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
@@ -11,7 +12,7 @@ export const getStaticPaths = (async ({ paginate }) => {
     (a, b) => b.data.priority - a.data.priority,
   );
 
-  return paginate(projects, { pageSize: 4 });
+  return paginate(projects, { pageSize: 3 });
 }) satisfies GetStaticPaths;
 
 interface Props {
@@ -28,7 +29,10 @@ const { page } = Astro.props;
       Some of my most cherished and meticulously developed projects.
     </p>
     <hr />
+    <ProjectPagination page={page} client:load transition:persist="p1" />
     {page.data.map((project) => <ProjectCard project={project} />)}
+    <br />
+    <ProjectPagination page={page} client:load transition:persist="p2" />
     <hr />
     <p>
       See more of my work and other open-source contributions over on my
