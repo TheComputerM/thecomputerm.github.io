@@ -33,7 +33,7 @@ const NavItem: ParentComponent<JSX.AnchorHTMLAttributes<HTMLAnchorElement>> = (
 
 const Navbar: Component = () => {
 	return (
-		<nav class={css({ borderBottomWidth: "normal" })}>
+		<nav class={css({ borderBottomWidth: "base" })}>
 			<Container>
 				<HStack height="12" justify="space-between">
 					<NavItem href="/" aria-label="Home">

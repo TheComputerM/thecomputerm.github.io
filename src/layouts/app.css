@@ -13,84 +13,20 @@
 
 /* adapted from https://github.com/owickstrom/the-monospace-web/blob/main/index.css */
 @layer base {
-	:root {
-		font-optical-sizing: auto;
-		font-style: normal;
-		font-variant-numeric: tabular-nums lining-nums;
-	}
-
-	body {
-		line-height: var(--line-heights-normal);
-	}
-
 	h1,
 	h2,
 	h3,
 	h4,
 	h5,
 	h6 {
-		margin: calc(var(--line-heights-normal) * 2) 0 var(--line-heights-normal);
-		line-height: var(--line-heights-normal);
+		margin: calc(var(--line-heights-base) * 2) 0 var(--line-heights-base);
+		line-height: var(--line-heights-base);
 		font-weight: var(--font-weights-bold);
 	}
 
-	h1 {
-		margin-bottom: calc(var(--line-heights-normal) * 2);
-		text-transform: uppercase;
-	}
-
-	h2 {
-		font-size: 1rem;
-		text-transform: uppercase;
-	}
-
-	hr {
-		position: relative;
-		display: block;
-		height: var(--line-heights-normal);
-		margin: calc(var(--line-heights-normal) * 1.5) 0;
-		border: none;
-		color: var(--colors-fg-default);
-	}
-
-	hr:after {
-		display: block;
-		content: "";
-		position: absolute;
-		top: calc(var(--line-heights-normal) / 2 - var(--border-widths-normal));
-		left: 0;
-		width: 100%;
-		border-top: calc(var(--border-widths-normal) * 3) double
-			var(--colors-fg-default);
-		height: 0;
-	}
-
-	a {
-		background-color: var(--colors-bg-canvas);
-		text-decoration: underline;
-		text-decoration-thickness: var(--border-widths-normal);
-	}
-
-	a:link,
-	a:visited {
-		color: var(--colors-fg-default);
-	}
-
-	a:hover {
-		background-color: var(--colors-fg-default);
-		color: var(--colors-bg-canvas);
-	}
 
 	p:not(:last-child) {
-		margin-bottom: var(--line-heights-normal);
-	}
-
-	strong {
-		font-weight: var(--font-weights-bold);
-	}
-
-	em {
-		font-style: italic;
+		margin-bottom: var(--line-heights-base);
 	}
 
 	sub {
@@ -105,26 +41,26 @@
 
 	table {
 		position: relative;
-		top: calc(var(--line-heights-normal) / 2);
+		top: calc(var(--line-heights-base) / 2);
 		border-collapse: collapse;
-		margin: 0 0 calc(var(--line-heights-normal) * 2);
+		margin: 0 0 calc(var(--line-heights-base) * 2);
 	}
 
 	th,
 	td {
-		border: var(--border-widths-normal) solid var(--colors-fg-default);
-		padding: calc((var(--line-heights-normal) / 2))
-			calc(1ch - var(--border-widths-normal) / 2)
-			calc((var(--line-heights-normal) / 2) - (var(--border-widths-normal)));
-		line-height: var(--line-heights-normal);
+		border: var(--border-widths-base) solid var(--colors-fg-default);
+		padding: calc((var(--line-heights-base) / 2))
+			calc(1ch - var(--border-widths-base) / 2)
+			calc((var(--line-heights-base) / 2) - (var(--border-widths-base)));
+		line-height: var(--line-heights-base);
 		vertical-align: top;
 		text-align: left;
 	}
 
 	table tbody tr:first-child > * {
 		padding-top: calc(
-			(var(--line-heights-normal) / 2) -
-			var(--border-widths-normal)
+			(var(--line-heights-base) / 2) -
+			var(--border-widths-base)
 		);
 	}
 
@@ -152,9 +88,9 @@
 	}
 
 	details {
-		border: var(--border-widths-normal) solid var(--colors-fg-default);
-		padding: calc(var(--line-heights-normal) - var(--border-widths-normal)) 1ch;
-		margin-bottom: var(--line-heights-normal);
+		border: var(--border-widths-base) solid var(--colors-fg-default);
+		padding: calc(var(--line-heights-base) - var(--border-widths-base)) 1ch;
+		margin-bottom: var(--line-heights-base);
 	}
 
 	summary {
@@ -163,7 +99,7 @@
 	}
 
 	details[open] summary {
-		margin-bottom: var(--line-heights-normal);
+		margin-bottom: var(--line-heights-base);
 	}
 
 	details ::marker {
@@ -183,7 +119,7 @@
 	pre {
 		white-space: pre;
 		overflow-x: auto;
-		margin: var(--line-heights-normal) 0;
+		margin: var(--line-heights-base) 0;
 		overflow-y: hidden;
 	}
 
@@ -192,7 +128,7 @@
 	}
 
 	figure {
-		margin: calc(var(--line-heights-normal) * 2) 3ch;
+		margin: calc(var(--line-heights-base) * 2) 3ch;
 		overflow-x: auto;
 		overflow-y: hidden;
 	}
@@ -200,13 +136,13 @@
 	figcaption {
 		display: block;
 		font-style: italic;
-		margin-top: var(--line-heights-normal);
+		margin-top: var(--line-heights-base);
 	}
 
 	ul,
 	ol {
 		padding: 0;
-		margin: 0 0 var(--line-heights-normal);
+		margin: 0 0 var(--line-heights-base);
 	}
 
 	ul {

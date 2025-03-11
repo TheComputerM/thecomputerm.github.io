@@ -18,7 +18,7 @@ export const paginationStyles = {
 		fontSize: "lg",
 		"&[data-selected]": {
 			textDecoration: "underline",
-			textDecorationThickness: token.var("borderWidths.normal"),
+			textDecorationThickness: token.var("borderWidths.base"),
 			backgroundColor: "fg.default",
 			color: "bg.canvas",
 		},

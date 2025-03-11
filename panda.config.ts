@@ -1,4 +1,5 @@
 import { defineConfig } from "@pandacss/dev";
+import monospaceStyles from "monospace.styles";
 
 export default defineConfig({
 	// Whether to use css reset
@@ -17,10 +18,10 @@ export default defineConfig({
 		extend: {
 			tokens: {
 				borderWidths: {
-					normal: { value: "2px" },
+					base: { value: "2px", description: "Base border width for theme" },
 				},
 				lineHeights: {
-					normal: { value: "1.2rem" },
+					base: { value: "1.2rem", description: "Base line height for theme" },
 				},
 				fontWeights: {
 					normal: { value: "500" },
@@ -62,31 +63,7 @@ export default defineConfig({
 			},
 		},
 	},
-	globalCss: {
-		'*': {
-			scrollbarColor: "var(--colors-fg-default) transparent",
-			scrollbarWidth: "thin",
-		},
-		":root": {
-			fontWeight: "normal",
-			fontSize: "14px",
-			sm: {
-				fontSize: "16px",
-			},
-		},
-		html: {
-			backgroundColor: "bg.default",
-			color: "fg.default",
-		},
-		h1: {
-			fontSize: "1.5rem",
-			lineHeight: "calc(1.5 * var(--line-heights-normal))",
-			sm: {
-				fontSize: "2rem",
-				lineHeight: "calc(2 * var(--line-heights-normal))"
-			}
-		}
-	},
+	globalCss: monospaceStyles,
 	globalVars: {
 		"--global-font-body": "JetBrains Mono Variable, monospace",
 		"--global-font-mono": "JetBrains Mono Variable, monospace",
