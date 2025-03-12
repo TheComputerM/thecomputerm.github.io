@@ -2,9 +2,9 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import type { GetStaticPaths, Page } from "astro";
 import { css } from "styled-system/css";
-import MDContainer from "~/components/MDContainer.astro";
 import ProjectCard from "~/components/ProjectCard.astro";
 import { ProjectPagination } from "~/components/ProjectPagination";
+import MDContainer from "~/components/layout/MDContainer.astro";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
