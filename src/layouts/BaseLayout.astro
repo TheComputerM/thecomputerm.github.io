@@ -1,7 +1,6 @@
 ---
 import "@fontsource-variable/jetbrains-mono";
 import "./app.css";
-import { ClientRouter } from "astro:transitions";
 import Footer from "~/components/Footer.astro";
 import Navbar from "~/components/Navbar";
 
@@ -26,12 +25,11 @@ const {
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<slot name="head" />
-		<ClientRouter />
 	</head>
 	<body>
 		<Navbar client:load />
 		<slot />
-		<Footer transition:persist="footer" />
+		<Footer />
 	</body>
 </html>
 
