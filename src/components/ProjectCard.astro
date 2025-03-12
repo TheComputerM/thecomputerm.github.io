@@ -1,25 +1,39 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { render } from "astro:content";
-import { Grid } from "styled-system/jsx";
+import { Grid, Stack } from "styled-system/jsx";
 import { octokit } from "~/content/projects/client";
 import { Card } from "./ui/Card";
 
 interface Props {
-	project: CollectionEntry<"projects">;
+  project: CollectionEntry<"projects">;
 }
 
 const { project } = Astro.props;
 const [owner, repoName] = project.data.repo.split("/");
 const { data: repository } = await octokit.request(
-	"GET /repos/{owner}/{repo}",
-	{
-		owner,
-		repo: repoName,
-	},
+  "GET /repos/{owner}/{repo}",
+  {
+    owner,
+    repo: repoName,
+  },
 );
 
-const homepage = repository.homepage || project.data.homepage;
+const links = Object.entries(
+  Object.assign(
+    {
+      Homepage: repository.homepage ?? "",
+    },
+    project.data.links,
+  ),
+)
+  .filter(([, value]) => !!value)
+  .map(([key, value]) => [key, { href: value, text: value }] as const);
+
+links.unshift([
+  "GitHub",
+  { href: `https://github.com/${project.data.repo}`, text: project.data.repo },
+]);
 
 const { Content } = await render(project);
 ---
@@ -30,24 +44,20 @@ const { Content } = await render(project);
     <Content />
   </Card>
   <Card title="Links">
-    <p>
-      <b>GitHub: </b>
-      <a href={`https://github.com/${project.data.repo}`} target="_blank">
-        {project.data.repo}
-      </a>
-    </p>
-    {
-      homepage && (
-        <p>
-          <b>Homepage: </b>
-          <a href={homepage} target="_blank">
-            {homepage}
-          </a>
-        </p>
-      )
-    }
+    <Stack gap="4">
+      {
+        links.map(([label, { href, text }]) => (
+          <div>
+            <strong>{label}: </strong>
+            <a href={href} target="_blank">
+              {text}
+            </a>
+          </div>
+        ))
+      }
+    </Stack>
   </Card>
 </Grid>
 <Card title="tags" mt="2">
-  {repository.topics.join(", ")}
+  {repository.topics?.join(", ")}
 </Card>
