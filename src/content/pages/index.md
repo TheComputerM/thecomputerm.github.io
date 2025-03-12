@@ -8,7 +8,7 @@ I'm Mudit Somani, (aka **TheComputerM**), currently pursuing a bachelor's in com
 
 ## About Me
 
-I love tinkering around with various technologies and building projects that probably won't see the light of day using some new/obscure tech stack.
+I love tinkering around with various technologies and building projects that probably won't see the light of day using some new/obscure tech stack. Also a frequent victim of tunnel vision whenever I find some shiny new tech.
 
 
 I also contribute to open-source, which led me to being a [GSoC'24](https://summerofcode.withgoogle.com/archive/2024/projects/NDTqal0i) participant for the [Dart](https://dart.dev/) programming language and a finalist in [GCI'19](https://codein.withgoogle.com/archive/2019/) for the [Julia](https://julialang.org/) programming language.
