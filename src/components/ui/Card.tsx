@@ -11,7 +11,7 @@ export const Card: ParentComponent<CardProps> = (_props) => {
 	const HorizontalLine = (
 		<Box
 			borderTopWidth="base"
-			borderLeftWidth="base"
+			borderInlineWidth="base"
 			borderStyle="solid"
 			flexGrow="1"
 			aria-hidden="true"
@@ -27,8 +27,7 @@ export const Card: ParentComponent<CardProps> = (_props) => {
 			</HStack>
 			<Box
 				borderStyle="solid"
-				borderLeftWidth="base"
-				borderRightWidth="base"
+				borderInlineWidth="base"
 				borderBottomWidth="base"
 				p="4"
 			>

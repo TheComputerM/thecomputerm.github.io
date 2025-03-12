@@ -40,8 +40,8 @@ const Navbar: Component = () => {
 						<TablerHomeFilled />
 					</NavItem>
 					<HStack gap="4">
-						<a href="/projects/1">Projects</a>
-						<a href="/blog">Blog</a>
+						<a href="/projects/1">[Projects]</a>
+						<a href="/blog">[Blog]</a>
 						<Divider orientation="vertical" thickness="2" height="1em" />
 						<NavItem
 							href="https://github.com/TheComputerM"
