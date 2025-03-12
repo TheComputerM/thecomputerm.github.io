@@ -24,7 +24,6 @@
 		font-weight: var(--font-weights-bold);
 	}
 
-
 	p:not(:last-child) {
 		margin-bottom: var(--line-heights-base);
 	}

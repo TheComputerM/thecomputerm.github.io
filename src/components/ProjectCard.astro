@@ -6,33 +6,33 @@ import { octokit } from "~/content/projects/client";
 import { Card } from "./ui/Card";
 
 interface Props {
-  project: CollectionEntry<"projects">;
+	project: CollectionEntry<"projects">;
 }
 
 const { project } = Astro.props;
 const [owner, repoName] = project.data.repo.split("/");
 const { data: repository } = await octokit.request(
-  "GET /repos/{owner}/{repo}",
-  {
-    owner,
-    repo: repoName,
-  },
+	"GET /repos/{owner}/{repo}",
+	{
+		owner,
+		repo: repoName,
+	},
 );
 
 const links = Object.entries(
-  Object.assign(
-    {
-      Homepage: repository.homepage ?? "",
-    },
-    project.data.links,
-  ),
+	Object.assign(
+		{
+			Homepage: repository.homepage ?? "",
+		},
+		project.data.links,
+	),
 )
-  .filter(([, value]) => !!value)
-  .map(([key, value]) => [key, { href: value, text: value }] as const);
+	.filter(([, value]) => !!value)
+	.map(([key, value]) => [key, { href: value, text: value }] as const);
 
 links.unshift([
-  "GitHub",
-  { href: `https://github.com/${project.data.repo}`, text: project.data.repo },
+	"GitHub",
+	{ href: `https://github.com/${project.data.repo}`, text: project.data.repo },
 ]);
 
 const { Content } = await render(project);

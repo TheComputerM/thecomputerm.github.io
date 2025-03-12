@@ -8,37 +8,39 @@ import { ProjectPagination } from "~/components/ProjectPagination";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const projects = await getCollection("projects");
-  const priorityMap = new Map<string, number>();
-  const projectMap = new Map<string, CollectionEntry<"projects">>(projects.map((project) => [project.id, project]));
+	const projects = await getCollection("projects");
+	const priorityMap = new Map<string, number>();
+	const projectMap = new Map<string, CollectionEntry<"projects">>(
+		projects.map((project) => [project.id, project]),
+	);
 
-  function getPriority(project: CollectionEntry<"projects">) {
-    if (priorityMap.has(project.id)) {
-      return priorityMap.get(project.id) as number;
-    }
+	function getPriority(project: CollectionEntry<"projects">) {
+		if (priorityMap.has(project.id)) {
+			return priorityMap.get(project.id) as number;
+		}
 
-    let priority = 0;
-    if (project.data.next) {
-      const nextProject = projectMap.get(project.data.next);
-      if (!nextProject) {
-        throw new Error(`Project with ID ${project.data.next} not found`);
-      }
-      priority = getPriority(nextProject) + 1;
-    }
-    priorityMap.set(project.id, priority);
-    return priority;
-  }
+		let priority = 0;
+		if (project.data.next) {
+			const nextProject = projectMap.get(project.data.next);
+			if (!nextProject) {
+				throw new Error(`Project with ID ${project.data.next} not found`);
+			}
+			priority = getPriority(nextProject) + 1;
+		}
+		priorityMap.set(project.id, priority);
+		return priority;
+	}
 
-  for (const project of projects) getPriority(project);
+	for (const project of projects) getPriority(project);
 
-  // biome-ignore lint/style/noNonNullAssertion: calculated priority for all projects
-  projects.sort((a, b) => priorityMap.get(b.id)! - priorityMap.get(a.id)!);
+	// biome-ignore lint/style/noNonNullAssertion: calculated priority for all projects
+	projects.sort((a, b) => priorityMap.get(b.id)! - priorityMap.get(a.id)!);
 
-  return paginate(projects, { pageSize: 3 });
+	return paginate(projects, { pageSize: 3 });
 }) satisfies GetStaticPaths;
 
 interface Props {
-  page: Page<CollectionEntry<"projects">>;
+	page: Page<CollectionEntry<"projects">>;
 }
 
 const { page } = Astro.props;

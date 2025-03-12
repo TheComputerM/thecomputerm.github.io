@@ -1,10 +1,11 @@
 ---
+import { css } from "styled-system/css";
 import { HStack } from "styled-system/jsx";
 import { Container } from "styled-system/jsx";
 ---
 
-<footer>
-  <Container borderTopWidth="base">
+<footer class={css({ borderTopWidth: "base" })}>
+  <Container>
     <HStack height="12" justify="space-between">
       <span class="caret-blink">TheComputerM</span>
       {new Date().getFullYear()}
