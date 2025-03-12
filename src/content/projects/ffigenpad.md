@@ -1,7 +1,7 @@
 ---
 name: FFIgenPad
 repo: thecomputerm/ffigenpad
-priority: 3
+next: lex
 links:
   Homepage: https://ffigenpad.surge.sh
 ---
