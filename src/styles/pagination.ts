@@ -1,26 +1,13 @@
-import { css } from "styled-system/css";
-import { token } from "styled-system/tokens";
+import { css, cx } from "styled-system/css";
 import { buttonStyles } from "./button";
 
 export const paginationStyles = {
 	root: css({
 		display: "flex",
 		justifyContent: "center",
-		alignItems: "stretch",
-		gap: "6",
+		alignItems: "center",
+		gap: "4",
 	}),
 	trigger: buttonStyles({ icon: true }),
-	item: css({
-		cursor: "pointer",
-		fontVariantNumeric: "tabular-nums",
-		backgroundColor: "bg.canvas",
-		px: "2",
-		fontSize: "lg",
-		"&[data-selected]": {
-			textDecoration: "underline",
-			textDecorationThickness: token.var("borderWidths.base"),
-			backgroundColor: "fg.default",
-			color: "bg.canvas",
-		},
-	}),
+	item: buttonStyles({ variant: "outline", icon: true }),
 };

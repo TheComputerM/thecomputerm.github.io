@@ -4,8 +4,8 @@ import { Pagination } from "@ark-ui/solid";
 import type { Page } from "astro";
 import { type Component, For } from "solid-js";
 import { paginationStyles } from "~/styles/pagination";
-import TablerChevronLeft from "~icons/tabler/chevron-left";
-import TablerChevronRight from "~icons/tabler/chevron-right";
+import TablerCaretLeftFilled from "~icons/tabler/caret-left-filled";
+import TablerCaretRightFilled from "~icons/tabler/caret-right-filled";
 
 export const ProjectPagination: Component<{
 	page: Page<CollectionEntry<"projects">>;
@@ -19,7 +19,7 @@ export const ProjectPagination: Component<{
 			class={paginationStyles.root}
 		>
 			<Pagination.PrevTrigger class={paginationStyles.trigger}>
-				<TablerChevronLeft />
+				<TablerCaretLeftFilled />
 			</Pagination.PrevTrigger>
 			<Pagination.Context>
 				{(api) => (
@@ -39,7 +39,7 @@ export const ProjectPagination: Component<{
 				)}
 			</Pagination.Context>
 			<Pagination.NextTrigger class={paginationStyles.trigger}>
-				<TablerChevronRight />
+				<TablerCaretRightFilled />
 			</Pagination.NextTrigger>
 		</Pagination.Root>
 	);

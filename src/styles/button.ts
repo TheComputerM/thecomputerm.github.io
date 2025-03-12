@@ -36,13 +36,37 @@ export const buttonStyles = cva({
 					backgroundColor: "fg.canvas",
 				},
 			},
+			outline: {
+				borderWidth: "base",
+				borderColor: "fg.default",
+				_hover: {
+					borderColor: "fg.canvas",
+				},
+				_selected: {
+					backgroundColor: "fg.default",
+					color: "bg.canvas",
+				},
+			},
 		},
 		size: {
-			md: {
+			sm: {
 				h: "8",
 				minW: "8",
 				textStyle: "sm",
-				px: "2",
+				px: "3",
+				gap: "2",
+			},
+			md: {
+				h: "9",
+				minW: "9",
+				px: "3.5",
+				gap: "2",
+			},
+			lg: {
+				h: "10",
+				minW: "10",
+				textStyle: "lg",
+				px: "4",
 				gap: "2",
 			},
 		},
