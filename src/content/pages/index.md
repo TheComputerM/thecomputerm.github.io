@@ -20,3 +20,21 @@ When I'm not writing shitty commit messages, I enjoy reading manga, exploring th
 ## Contact Me
 
 Feel free to email me at [mudit.somani00@gmail.com](mailto:mudit.somani00@gmail.com)
+
+<details>
+<summary> My GPG key (if you're into that)</summary>
+<pre style="font-size:12px">
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+mDMEaE3gsBYJKwYBBAHaRw8BAQdAO4I+7v6ChHCtVjYvFO/Sd+/zJJqHmq6NKQQ+
+r5Q03Se0J011ZGl0IFNvbWFuaSA8bXVkaXQuc29tYW5pMDBAZ21haWwuY29tPoiW
+BBMWCgA+FiEEKrUD2X9ciQIvsiwk8uuOBcHpiV8FAmhN4LACGwMFCQWjmoAFCwkI
+BwIGFQoJCAsCBBYCAwECHgECF4AACgkQ8uuOBcHpiV/d8wEA2Tfd/DRaFtqIDWeZ
+waxULxs3llXQt9SIex81LEi3/BcA/j0v4/cHATw9E3YfTwapD7Rcbip5jnJqHX4t
+e3F0rLQNuDgEaE3gsBIKKwYBBAGXVQEFAQEHQIeV47c+SNgVreh0xXamZhQvPked
+GDGoWVgfKaXfviJmAwEIB4h+BBgWCgAmFiEEKrUD2X9ciQIvsiwk8uuOBcHpiV8F
+AmhN4LACGwwFCQWjmoAACgkQ8uuOBcHpiV+h6QEAs6SD6mxBDlTrGFMeh5Pna0uD
+49ml2zbizuzN4MGujOwA/RSCZGOdxXeKDXHAT3luYGF74e8j+EZQsIS7HHsPkzcG
+=1wow
+-----END PGP PUBLIC KEY BLOCK-----
+</pre></details>
