@@ -69,7 +69,7 @@ export const Navbar = () => {
 						<TablerHomeFilled />
 					</NavTooltip>
 					<div className="inline-flex items-center gap-4">
-						<a href="/projects">[Projects]</a>
+						<a href="/projects/1">[Projects]</a>
 						<a href="/blog">[Blog]</a>
 						<hr aria-orientation="vertical" className="border-l-2 h-4" />
 						<NavTooltip
