@@ -1,0 +1,42 @@
+[
+	{
+		"id": "localbox",
+		"body": "An **easy-to-host**, **general purpose** and **fast** code execution system for running **untrusted** code in sandboxes.",
+		"source": {
+			"type": "github",
+			"repo": "thecomputerm/localbox"
+		}
+	},
+	{
+		"id": "Demochain",
+		"body": "A dummy peer-2-peer **blockchain** network that can run purely in your **browser** using WebRTC *without* a central server.",
+		"source": {
+			"type": "github",
+			"repo": "thecomputerm/demochain"
+		}
+	},
+	{
+		"id": "FFIgenPad",
+		"body": "My [GSoC](https://summerofcode.withgoogle.com/archive/2024/projects/NDTqal0i) project with the [Dart](https://dart.dev/) organization. Use your C headers to generate *dart:ffi* bindings fully in the browser using **WASM**.",
+		"source": {
+			"type": "github",
+			"repo": "thecomputerm/ffigenpad"
+		}
+	},
+	{
+		"id": "Lex",
+		"body": "A flutter app with a companion [golang server](https://github.com/crux-bphc/lex-backend) that enables the students of BITS Hyderabad to be more academically productive.",
+		"source": {
+			"type": "github",
+			"repo": "crux-bphc/lex"
+		}
+	},
+	{
+		"id": "Svelte Materialify",
+		"body": "**DEPRECATED**, my **first** huge open-source project, a *material design* component library for **Svelte** 3.",
+		"source": {
+			"type": "github",
+			"repo": "thecomputerm/svelte-materialify"
+		}
+	}
+]

@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+	--spacing: 0.25em;
+	--text-base--line-height: 1.2rem;
+	--font-mono: "JetBrains Mono Variable", monospace;
+}
+
+@theme inline {
+	--font-sans: var(--font-mono);
+	--color-background: var(--color-background);
+	--color-foreground: var(--color-foreground);
+	--color-muted-foreground: var(--color-muted-foreground);
+}
+
+@layer base {
+	:root {
+		font-optical-sizing: auto;
+		font-style: normal;
+		font-variant-numeric: tabular-nums lining-nums;
+		@apply text-sm sm:text-base;
+
+		--color-background: white;
+		--color-foreground: black;
+		--color-muted-foreground: var(--color-neutral-600);
+	}
+
+	.dark {
+		--color-background: black;
+		--color-foreground: white;
+		--color-muted-foreground: var(--color-neutral-400);
+	}
+
+	/* for base-ui */
+	.root {
+		isolation: isolate;
+	}
+
+	* {
+		scrollbar-width: thin;
+		scrollbar-color: var(--color-foreground) transparent;
+	}
+
+	body {
+		@apply font-medium;
+	}
+
+	p {
+		word-break: break-word;
+		word-wrap: break-word;
+		hyphens: auto;
+	}
+
+	ul,
+	ol {
+		@apply leading-normal;
+	}
+
+	ul {
+		list-style-type: square;
+		padding: 0 0 0 2ch;
+	}
+
+	ol {
+		list-style-type: none;
+		counter-reset: item;
+
+		ol {
+			padding: 0 0 0 3ch;
+		}
+
+		li:before {
+			@apply font-medium;
+			content: counters(item, ".") ". ";
+			counter-increment: item;
+		}
+	}
+
+	strong {
+		@apply font-bold;
+	}
+
+	table {
+		@apply border-collapse w-full relative;
+	}
+
+	th,
+	td {
+		@apply border-2 text-left p-2 align-top;
+	}
+
+	th {
+		@apply font-extrabold;
+	}
+
+	img,
+	video {
+		@apply w-full;
+		display: block;
+		object-fit: contain;
+		overflow: hidden;
+	}
+
+	img {
+		font-style: italic;
+	}
+
+	a:not(.reset) {
+		@apply underline decoration-2;
+
+		&:link,
+		&:visited {
+			@apply dark:text-foreground;
+		}
+
+		@variant hover {
+			@apply bg-foreground text-background;
+		}
+	}
+}
+
+@layer components {
+	.prose {
+		@apply max-w-prose;
+
+		:first-child {
+			@apply mt-0;
+		}
+
+		:last-child {
+			@apply mb-0;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			@apply font-extrabold;
+		}
+
+		h1,
+		h2 {
+			@apply uppercase;
+		}
+
+		h1 {
+			@apply text-xl sm:text-3xl mt-8 mb-4;
+		}
+
+		h2 {
+			@apply sm:text-lg mt-7.5 mb-4;
+		}
+
+		h3 {
+			@apply mt-7 mb-2.5;
+		}
+
+		p {
+			@apply my-5;
+		}
+
+		hr {
+			@apply border-y-2 h-1.5 my-8;
+		}
+
+		pre {
+			white-space: pre;
+			overflow-x: auto;
+			overflow-y: hidden;
+			@apply my-4 py-1;
+		}
+	}
+}

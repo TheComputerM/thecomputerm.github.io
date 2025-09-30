@@ -1,0 +1,28 @@
+<footer class="border-t-2">
+  <div class="px-4 sm:px-8">
+    <div class="flex justify-between items-center h-12">
+      <span class="caret-blink after:text-emerald-500 dark:after:text-emerald-400">TheComputerM</span>
+      {new Date().getFullYear()}
+    </div>
+  </div>
+</footer>
+
+<style>
+  .caret-blink {
+    font-weight: 900;
+    font-size: 1.25rem;
+  }
+
+  @keyframes blink {
+    100% {
+      visibility: hidden;
+    }
+  }
+
+  .caret-blink::after {
+    content: "\2593";
+    margin-left: 2px;
+    text-shadow: 0 0 5px currentColor;
+    animation: blink 2s steps(2, start) infinite;
+  }
+</style>

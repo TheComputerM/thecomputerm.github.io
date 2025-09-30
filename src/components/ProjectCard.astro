@@ -1,0 +1,64 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
+import { Octokit } from "@octokit/core";
+import { Card } from "./ui/Card";
+
+export const octokit = new Octokit();
+interface Props {
+	project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const links = [];
+const tags = [];
+
+switch (project.data.source.type) {
+	case "github": {
+		links.push({
+			name: "GitHub",
+			label: project.data.source.repo,
+			url: `https://github.com/${project.data.source.repo}`,
+		});
+		const [owner, repo] = project.data.source.repo.split("/");
+		const { data: repository } = await octokit.request(
+			"GET /repos/{owner}/{repo}/",
+			{ owner, repo },
+		);
+
+		if (repository.homepage) {
+			links.push({
+				name: "Homepage",
+				label: repository.homepage,
+				url: repository.homepage,
+			});
+		}
+		tags.push(...repository.topics);
+
+		break;
+	}
+}
+---
+
+<h2>{project.id}</h2>
+<div class="grid sm:grid-cols-2 gap-2">
+	<Card title="description">
+		<Content />
+	</Card>
+	<Card title="links">
+		{
+			links.map((link) => (
+				<p>
+					<strong>{link.name}: </strong>
+					<a target="_blank" href={link.url} class="link">
+						{link.label}
+					</a>
+				</p>
+			))
+		}
+	</Card>
+</div>
+<Card title="tags" className="mt-2">
+	{tags.join(", ")}
+</Card>

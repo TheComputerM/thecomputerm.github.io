@@ -1,0 +1,45 @@
+---
+import { getCollection } from "astro:content";
+import { ContentContainer, GridBackground } from "@/components/ui/Content";
+import BaseLayout from "@/layouts/Base.astro";
+
+const posts = await getCollection("blog");
+---
+
+<BaseLayout title="TheComputerM's Blog">
+  <GridBackground>
+    <ContentContainer>
+      <h1>Blog</h1>
+      <ul>
+        <li>
+          <a
+            href="https://thecomputerm.hashnode.dev/rss.xml"
+            target="_blank"
+            class="link"
+          >
+            RSS
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://thecomputerm.hashnode.dev/"
+            target="_blank"
+            class="link"
+          >
+            Hashnode (Canonical)
+          </a>
+        </li>
+      </ul>
+      <hr />
+      <ol>
+        {
+          posts.map((post) => (
+            <li>
+              <a href={`/blog/${post.data.slug}`}>{post.data.title}</a>
+            </li>
+          ))
+        }
+      </ol>
+    </ContentContainer>
+  </GridBackground>
+</BaseLayout>

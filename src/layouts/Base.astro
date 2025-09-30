@@ -1,0 +1,60 @@
+---
+import "@fontsource-variable/jetbrains-mono";
+import "@/styles/global.css";
+import Footer from "@/components/Footer.astro";
+import { Navbar } from "@/components/Navbar";
+
+export interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = "TheComputerM | Mudit Somani",
+	description = "I am Mudit Somani, a CS student at BITS Pilani, GSoC'24 @Dart, Google Code-in '19 @JuliaLang and the president of my college's coding club",
+} = Astro.props;
+---
+
+<html lang="en" class="dark">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<slot name="head" />
+	</head>
+	<body class="bg-background text-foreground">
+		<div class="root">
+			<Navbar client:load />
+			<br />
+			<slot />
+			<Footer />
+		</div>
+	</body>
+</html>
+
+<script>
+	console.log(
+		"You expected some error logs, BUT IT WAS ME, %cDIO!",
+		"color: yellow; font-size: 2em; font-weight: bolder;",
+	);
+	console.log(`
+⣿⣿⣿⣿⣿⡧⣻⣿⣿⡿⣿⣱⣿⣿⣿⢿⡿⢿⣟⣿⣿⣮⡻⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⡗⣿⣿⣿⡷⢽⠚⡿⢿⡆⡙⢿⡌⡻⣎⠿⠿⠿⠮⠛⢿⣿⣿⣿⣟
+⣿⣿⣿⣔⡶⢾⣿⣿⣿⡔⢈⣠⠃⣷⠃⢫⢢⣭⠙⠶⣧⡉⠻⡿⣻⢭⢹⣿⣿⣿
+⣿⣿⣿⣿⡏⢎⣿⡏⡆⠃⢼⡟⡇⠋⠀⠁⡁⠠⣠⣾⣿⣿⣷⢳⡇⡭⣏⣿⣿⣿
+⣿⣿⣿⣿⣧⣍⠋⣿⢡⠠⠁⠂⢳⣂⣤⣼⣧⣴⣿⣿⣿⣿⣿⣼⣧⣵⠏⣿⣿⢇
+⣿⣿⣿⣿⣯⣥⣥⢉⢙⢧⢶⣶⢨⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡍⣥⣾⣿⣿⣻
+⣿⣿⣿⣿⣿⣿⣿⣾⣾⣷⡘⣿⣦⢷⡾⢿⣛⠛⢃⣿⣿⣿⣿⣿⣿⡙⢿⢿⣿⡝
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣜⢿⣆⠨⢓⣤⣶⢸⣿⣿⣿⡿⣫⣾⡿⠜⣾⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡻⣇⣩⣭⣡⣾⣿⡿⣫⣾⢧⣿⣵⣿⡹⢯⢫
+⡟⣩⣷⣜⢿⡿⣿⣛⣻⣿⣿⣿⣿⣿⣞⣷⣶⣿⢟⣫⣾⣿⣿⣾⣿⣿⡿⣗⣥⢾
+⣷⣭⣭⢿⡬⣾⡿⣫⣵⣿⣿⣿⡟⠫⣙⣦⡴⣾⣿⢿⣛⣯⣭⡿⢶⣞⣫⣽⣾⣿
+⣷⣿⣿⢈⣴⡎⣵⣿⣿⣿⣿⣿⣧⢭⣶⡪⢳⡋⡵⣫⣷⣶⣾⣿⣿⣿⣿⣿⣿⣿
+⣟⢿⣫⣾⡟⣼⣿⣿⣿⣿⣿⣿⡿⣸⣿⣿⣇⢞⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣵⣿⣿⡟⣽⡿⢿⣻⣯⣷⣶⣿⣿⣮⡻⣿⠘⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⡿⢏⣬⣷⣾⣿⣿⣿⣿⣿⣿⣿⠟⣡⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+`);
+</script>

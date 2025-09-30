@@ -1,0 +1,73 @@
+---
+import { getCollection } from "astro:content";
+import type { GetStaticPaths } from "astro";
+import { ContentContainer, GridBackground } from "@/components/ui/Content";
+import BaseLayout from "@/layouts/Base.astro";
+
+export const getStaticPaths = (async () => {
+	const posts = await getCollection("blog");
+	return posts.map((post) => ({
+		params: { slug: post.data.slug },
+		props: { post },
+	}));
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+const { data } = post;
+---
+
+<BaseLayout title={`${data.title} - TheComputerM's Blog`}>
+  <Fragment slot="head">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
+    />
+    {
+      data.coverImage && (
+        <meta property="og:image" content={data.coverImage.url} />
+      )
+    }
+  </Fragment>
+  <GridBackground>
+    <ContentContainer>
+      <table>
+        <tr>
+          <th colspan="2">
+            <h1 class="m-0">{data.title}</h1>
+            <p class="m-0 text-muted-foreground font-medium">{data.subtitle}</p>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            {new Date(data.publishedAt).toDateString()}
+          </td>
+          <td>
+            {data.readingTime} min read
+          </td>
+        </tr>
+        <tr>
+          <td>
+            {data.tags.map((tag) => tag.name).join(", ")}
+          </td>
+          <td>
+            <a
+              href={`https://thecomputerm.hashnode.dev/${data.slug}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Canonical
+            </a>
+          </td>
+        </tr>
+      </table>
+      <br />
+      {
+        data.coverImage && (
+          <img src={data.coverImage.url} alt={data.coverImage.alt} class="grayscale hover:grayscale-0 transition-[filter] duration-300 ease-in-out" />
+        )
+      }
+      <br />
+      <Fragment set:html={data.content.html} />
+    </ContentContainer>
+  </GridBackground>
+</BaseLayout>
