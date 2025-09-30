@@ -24,6 +24,14 @@
 		}
 	},
 	{
+		"id": "LibClang WASM",
+		"body": "[LibClang](https://clang.llvm.org/docs/LibClang.html) compiled to WebAssembly so you can parse and traverse C/C++ source code anywhere, even in the browser.",
+		"source": {
+			"type": "github",
+			"repo": "thecomputerm/libclang-wasm"
+		}
+	},
+	{
 		"id": "Lex",
 		"body": "A flutter app with a companion [golang server](https://github.com/crux-bphc/lex-backend) that enables the students of BITS Hyderabad to be more academically productive.",
 		"source": {
