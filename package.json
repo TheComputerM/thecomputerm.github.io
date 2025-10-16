@@ -15,9 +15,9 @@
     "@fontsource-variable/jetbrains-mono": "^5.2.8",
     "@octokit/core": "^7.0.5",
     "@tailwindcss/vite": "^4.1.14",
-    "@types/react": "^19.2.0",
-    "@types/react-dom": "^19.2.0",
-    "astro": "^5.14.1",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "astro": "^5.14.5",
     "astro-loader-hashnode": "^1.2.0",
     "clsx": "^2.1.1",
     "react": "^19.2.0",
@@ -27,7 +27,7 @@
     "three": "^0.180.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.2.2",
+    "@biomejs/biome": "2.2.6",
     "@iconify-json/tabler": "^1.2.23",
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
