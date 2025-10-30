@@ -5,11 +5,11 @@ import { ContentContainer, GridBackground } from "@/components/ui/Content";
 import BaseLayout from "@/layouts/Base.astro";
 
 export const getStaticPaths = (async () => {
-	const posts = await getCollection("blog");
-	return posts.map((post) => ({
-		params: { slug: post.data.slug },
-		props: { post },
-	}));
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.data.slug },
+    props: { post },
+  }));
 }) satisfies GetStaticPaths;
 
 const { post } = Astro.props;
@@ -63,7 +63,11 @@ const { data } = post;
       <br />
       {
         data.coverImage && (
-          <img src={data.coverImage.url} alt={data.coverImage.alt} class="grayscale hover:grayscale-0 transition-[filter] duration-300 ease-in-out" />
+          <img
+            src={data.coverImage.url}
+            alt={data.coverImage.alt}
+            class="grayscale hover:grayscale-0 transition-[filter] duration-300 ease-in-out"
+          />
         )
       }
       <br />

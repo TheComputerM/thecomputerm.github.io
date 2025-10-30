@@ -44,7 +44,7 @@
 	}
 
 	body {
-		@apply font-medium;
+		@apply font-medium relative;
 	}
 
 	p {
