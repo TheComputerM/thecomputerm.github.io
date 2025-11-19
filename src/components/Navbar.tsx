@@ -9,9 +9,7 @@ import TablerSunFilled from "~icons/tabler/sun-filled";
 const NavTooltip = (props: ComponentProps<"a">) => {
 	return (
 		<Tooltip.Root>
-			<Tooltip.Trigger>
-				<a className="block" {...props} />
-			</Tooltip.Trigger>
+			<Tooltip.Trigger render={<a {...props} />} />
 			<Tooltip.Portal>
 				<Tooltip.Positioner side="bottom" sideOffset={8}>
 					<Tooltip.Popup className="bg-foreground text-background py-1 px-1.5">
