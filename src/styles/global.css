@@ -148,15 +148,15 @@
 		}
 
 		h1 {
-			@apply text-xl sm:text-3xl mt-8 mb-4;
+			@apply text-2xl sm:text-3xl mt-6 sm:mt-8 mb-4;
 		}
 
 		h2 {
-			@apply sm:text-lg mt-7.5 mb-4;
+			@apply text-lg sm:text-xl mt-6 sm:mt-8 mb-4;
 		}
 
 		h3 {
-			@apply mt-7 mb-2.5;
+			@apply mt-5 sm:mt-7 mb-2.5;
 		}
 
 		p {
