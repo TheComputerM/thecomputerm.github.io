@@ -1,4 +1,4 @@
-import { GridPattern } from "./Grid";
+import { GridPattern } from "./grid";
 
 export const GridBackground = (props: React.PropsWithChildren) => {
 	return (
