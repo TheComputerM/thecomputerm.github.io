@@ -32,7 +32,7 @@ export function PaginationLink({
 				"reset border-2 border-foreground size-10 inline-flex items-center justify-center cursor-pointer",
 				active
 					? "bg-foreground text-background"
-					: "hover:border-muted-foreground",
+					: "hover:border-secondary-foreground",
 
 				className,
 			)}

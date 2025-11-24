@@ -15,7 +15,7 @@ export const GridBackground = (props: React.PropsWithChildren) => {
 
 export const ContentContainer = (props: React.PropsWithChildren) => {
 	return (
-		<div className="bg-background border-2 min-w-0 md:shadow-[8px_8px_0_0] shadow-muted">
+		<div className="bg-background border-2 min-w-0 md:shadow-[8px_8px_0_0] shadow-secondary">
 			<div className="m-4 sm:m-8 prose">{props.children}</div>
 		</div>
 	);
