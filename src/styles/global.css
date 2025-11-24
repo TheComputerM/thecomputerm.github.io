@@ -12,6 +12,7 @@
 	--font-sans: var(--font-mono);
 	--color-background: var(--color-background);
 	--color-foreground: var(--color-foreground);
+	--color-muted: var(--color-muted);
 	--color-muted-foreground: var(--color-muted-foreground);
 }
 
@@ -24,12 +25,14 @@
 
 		--color-background: white;
 		--color-foreground: black;
+		--color-muted: var(--color-neutral-400);
 		--color-muted-foreground: var(--color-neutral-600);
 	}
 
 	.dark {
 		--color-background: black;
 		--color-foreground: white;
+		--color-muted: var(--color-neutral-600);
 		--color-muted-foreground: var(--color-neutral-400);
 	}
 
@@ -108,7 +111,7 @@
 	}
 
 	a:not(.reset) {
-		@apply underline decoration-2;
+		@apply underline decoration-2 bg-muted/10;
 
 		&:link,
 		&:visited {
