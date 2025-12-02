@@ -25,7 +25,7 @@
 
 		--color-background: white;
 		--color-foreground: black;
-		--color-secondary: var(--color-neutral-400);
+		--color-secondary: var(--color-neutral-300);
 		--color-secondary-foreground: var(--color-neutral-600);
 	}
 
@@ -111,7 +111,7 @@
 	}
 
 	a:not(.reset) {
-		@apply underline decoration-2 bg-secondary/10;
+		@apply underline decoration-2 bg-secondary/25;
 
 		&:link,
 		&:visited {
