@@ -8,6 +8,14 @@
 		}
 	},
 	{
+		"id": "lazycph",
+		"body": "A TUI competitive coding helper to manage and run testcases, also compatible with [competitive companion](https://github.com/jmerle/competitive-companion).",
+		"source": {
+			"type": "github",
+			"repo": "thecomputerm/lazycph"
+		}
+	},
+	{
 		"id": "Demochain",
 		"body": "A dummy peer-2-peer **blockchain** network that can run purely in your **browser** using WebRTC *without* a central server.",
 		"source": {
