@@ -2,6 +2,7 @@
 import { Card } from "@/components/ui/card";
 import { ContentContainer, GridBackground } from "@/components/ui/content";
 import BaseLayout from "@/layouts/Base.astro";
+import { Button } from "@/components/ui/button";
 ---
 
 <BaseLayout>
@@ -68,6 +69,11 @@ import BaseLayout from "@/layouts/Base.astro";
 					</tr>
 				</tbody>
 			</table>
+			<hr />
+			<Button>Default</Button>
+			<Button variant="outline">Outline</Button>
+			<Button variant="secondary">Secondary</Button>
+			<Button variant="ghost">Ghost</Button>
 		</ContentContainer>
 	</GridBackground>
 </BaseLayout>

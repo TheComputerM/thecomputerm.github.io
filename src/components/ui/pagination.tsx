@@ -1,7 +1,8 @@
 import type { Page } from "astro";
 import { cn } from "@/lib/utils";
-// import TablerCaretLeftFilled from "~icons/tabler/caret-left-filled";
-// import TablerCaretRightFilled from "~icons/tabler/caret-right-filled";
+import { buttonVariants } from "./button";
+import TablerCaretLeftFilled from "~icons/tabler/caret-left-filled";
+import TablerCaretRightFilled from "~icons/tabler/caret-right-filled";
 
 export function Pagination({
 	className,
@@ -28,14 +29,11 @@ export function PaginationLink({
 	return (
 		<a
 			data-active={active}
-			className={cn(
-				"reset border-2 border-foreground size-10 inline-flex items-center justify-center cursor-pointer",
-				active
-					? "bg-foreground text-background"
-					: "hover:border-secondary-foreground",
-
-				className,
-			)}
+			className={buttonVariants({
+				variant: active ? "default" : "outline",
+				size: "icon-lg",
+				className: `reset ${className}`,
+			})}
 			{...props}
 		/>
 	);
@@ -44,6 +42,21 @@ export function PaginationLink({
 export function AstroPagination({ page }: { page: Page }) {
 	return (
 		<Pagination>
+			{page.url.prev && (
+				<a
+					href={page.url.prev}
+					aria-disabled={!page.url.prev}
+					aria-label="Previous page"
+					className={buttonVariants({
+						size: "icon-lg",
+						variant: "ghost",
+						className: "reset",
+					})}
+				>
+					<TablerCaretLeftFilled />
+				</a>
+			)}
+
 			{Array.from({ length: page.lastPage })
 				.map((_, i) => i + 1)
 				.map((i) => (
@@ -55,6 +68,19 @@ export function AstroPagination({ page }: { page: Page }) {
 						{i}
 					</PaginationLink>
 				))}
+			{page.url.next && (
+				<a
+					href={page.url.next}
+					aria-label="Next page"
+					className={buttonVariants({
+						size: "icon-lg",
+						variant: "ghost",
+						className: "reset",
+					})}
+				>
+					<TablerCaretRightFilled />
+				</a>
+			)}
 		</Pagination>
 	);
 }
