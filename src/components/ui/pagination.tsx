@@ -1,86 +1,128 @@
-import type { Page } from "astro";
+import type * as React from "react";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "./button";
 import TablerCaretLeftFilled from "~icons/tabler/caret-left-filled";
 import TablerCaretRightFilled from "~icons/tabler/caret-right-filled";
+import TablerDots from "~icons/tabler/dots";
 
-export function Pagination({
-	className,
-	...props
-}: React.ComponentProps<"nav">) {
+function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
 	return (
 		<nav
 			aria-label="pagination"
-			className={cn("flex items-center justify-center gap-3", className)}
+			data-slot="pagination"
+			className={cn("mx-auto flex w-full justify-center", className)}
 			{...props}
 		/>
 	);
 }
 
-type PaginationLinkProps = React.ComponentProps<"a"> & {
-	active?: boolean;
-};
-
-export function PaginationLink({
+function PaginationContent({
 	className,
-	active,
+	...props
+}: React.ComponentProps<"ul">) {
+	return (
+		<ul
+			data-slot="pagination-content"
+			className={cn("gap-0.5 flex items-center reset", className)}
+			{...props}
+		/>
+	);
+}
+
+function PaginationItem({ ...props }: React.ComponentProps<"li">) {
+	return <li data-slot="pagination-item" {...props} />;
+}
+
+type PaginationLinkProps = {
+	isActive?: boolean;
+} & Pick<React.ComponentProps<typeof Button>, "size"> &
+	React.ComponentProps<"a">;
+
+function PaginationLink({
+	className,
+	isActive,
+	size = "icon",
 	...props
 }: PaginationLinkProps) {
 	return (
-		<a
-			data-active={active}
-			className={buttonVariants({
-				variant: active ? "default" : "outline",
-				size: "icon-lg",
-				className: `reset ${className}`,
-			})}
-			{...props}
+		<Button
+			variant={isActive ? "outline" : "ghost"}
+			size={size}
+			className={cn(className)}
+			nativeButton={false}
+			render={
+				<a
+					aria-current={isActive ? "page" : undefined}
+					data-slot="pagination-link"
+					data-active={isActive}
+					className="reset"
+					{...props}
+				/>
+			}
 		/>
 	);
 }
 
-export function AstroPagination({ page }: { page: Page }) {
+function PaginationPrevious({
+	className,
+	...props
+}: React.ComponentProps<typeof PaginationLink>) {
 	return (
-		<Pagination>
-			{page.url.prev && (
-				<a
-					href={page.url.prev}
-					aria-disabled={!page.url.prev}
-					aria-label="Previous page"
-					className={buttonVariants({
-						size: "icon-lg",
-						variant: "ghost",
-						className: "reset",
-					})}
-				>
-					<TablerCaretLeftFilled />
-				</a>
-			)}
-
-			{Array.from({ length: page.lastPage })
-				.map((_, i) => i + 1)
-				.map((i) => (
-					<PaginationLink
-						key={i}
-						active={i === page.currentPage}
-						href={`/projects/${i}`}
-					>
-						{i}
-					</PaginationLink>
-				))}
-			{page.url.next && (
-				<a
-					href={page.url.next}
-					aria-label="Next page"
-					className={buttonVariants({
-						size: "icon-lg",
-						variant: "ghost",
-						className: "reset",
-					})}
-				>
-					<TablerCaretRightFilled />
-				</a>
-			)}
-		</Pagination>
+		<PaginationLink
+			aria-label="Go to previous page"
+			size="default"
+			className={cn("pl-1.5!", className)}
+			{...props}
+		>
+			<TablerCaretLeftFilled data-icon="inline-start" />
+			<span className="hidden sm:block">Previous</span>
+		</PaginationLink>
 	);
 }
+
+function PaginationNext({
+	className,
+	...props
+}: React.ComponentProps<typeof PaginationLink>) {
+	return (
+		<PaginationLink
+			aria-label="Go to next page"
+			size="default"
+			className={cn("pr-1.5!", className)}
+			{...props}
+		>
+			<span className="hidden sm:block">Next</span>
+			<TablerCaretRightFilled data-icon="inline-end" />
+		</PaginationLink>
+	);
+}
+
+function PaginationEllipsis({
+	className,
+	...props
+}: React.ComponentProps<"span">) {
+	return (
+		<span
+			aria-hidden
+			data-slot="pagination-ellipsis"
+			className={cn(
+				"size-8 [&_svg:not([class*='size-'])]:size-4 flex items-center justify-center",
+				className,
+			)}
+			{...props}
+		>
+			<TablerDots />
+			<span className="sr-only">More pages</span>
+		</span>
+	);
+}
+
+export {
+	Pagination,
+	PaginationContent,
+	PaginationEllipsis,
+	PaginationItem,
+	PaginationLink,
+	PaginationNext,
+	PaginationPrevious,
+};
