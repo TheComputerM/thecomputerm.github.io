@@ -138,7 +138,7 @@
 	body {
 		@apply font-medium relative;
 		@apply bg-background text-foreground;
-		line-height: 1.2rem;
+		line-height: 1.2;
 	}
 
 	p {
@@ -147,7 +147,7 @@
 		hyphens: auto;
 	}
 
-	ul:not(.reset) {
+	ul {
 		list-style-type: square;
 		padding: 0 0 0 2ch;
 	}
@@ -246,15 +246,15 @@
 		}
 
 		h2 {
-			@apply text-lg sm:text-xl mt-6 sm:mt-8 mb-4;
+			@apply text-lg sm:text-xl mt-5 sm:mt-7 mb-3;
 		}
 
 		h3 {
-			@apply mt-5 sm:mt-7 mb-2.5;
+			@apply mt-4 sm:mt-6 mb-2;
 		}
 
 		p {
-			@apply my-5;
+			@apply my-4;
 		}
 
 		hr {
