@@ -1,9 +1,11 @@
+import {
+	IconCaretLeftFilled,
+	IconCaretRightFilled,
+	IconDots,
+} from "@tabler/icons-react";
 import type * as React from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import TablerCaretLeftFilled from "~icons/tabler/caret-left-filled";
-import TablerCaretRightFilled from "~icons/tabler/caret-right-filled";
-import TablerDots from "~icons/tabler/dots";
 
 function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
 	return (
@@ -74,7 +76,7 @@ function PaginationPrevious({
 			className={cn("pl-1.5!", className)}
 			{...props}
 		>
-			<TablerCaretLeftFilled data-icon="inline-start" />
+			<IconCaretLeftFilled data-icon="inline-start" />
 			<span className="hidden sm:block">Previous</span>
 		</PaginationLink>
 	);
@@ -92,7 +94,7 @@ function PaginationNext({
 			{...props}
 		>
 			<span className="hidden sm:block">Next</span>
-			<TablerCaretRightFilled data-icon="inline-end" />
+			<IconCaretRightFilled data-icon="inline-end" />
 		</PaginationLink>
 	);
 }
@@ -111,7 +113,7 @@ function PaginationEllipsis({
 			)}
 			{...props}
 		>
-			<TablerDots />
+			<IconDots />
 			<span className="sr-only">More pages</span>
 		</span>
 	);

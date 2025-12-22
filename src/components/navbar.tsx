@@ -1,10 +1,12 @@
 import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";
+import {
+	IconBrandGithubFilled,
+	IconBrandLinkedinFilled,
+	IconHomeFilled,
+	IconMoonFilled,
+	IconSunFilled,
+} from "@tabler/icons-react";
 import { useEffect, useState } from "react";
-import TablerBrandGithubFilled from "~icons/tabler/brand-github-filled";
-import TablerBrandLinkedinFilled from "~icons/tabler/brand-linkedin-filled";
-import TablerHomeFilled from "~icons/tabler/home-filled";
-import TablerMoonFilled from "~icons/tabler/moon-filled";
-import TablerSunFilled from "~icons/tabler/sun-filled";
 import { Separator } from "./ui/separator";
 import { TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 
@@ -36,7 +38,7 @@ const ThemeSwitcher = () => {
 			className="cursor-pointer"
 			aria-label="Toggle Theme"
 		>
-			{darkMode ? <TablerSunFilled /> : <TablerMoonFilled />}
+			{darkMode ? <IconSunFilled /> : <IconMoonFilled />}
 		</button>
 	);
 };
@@ -50,7 +52,7 @@ export const Navbar = () => {
 						<TooltipTrigger
 							render={
 								<a href="/" aria-label="Home">
-									<TablerHomeFilled />
+									<IconHomeFilled />
 								</a>
 							}
 						/>
@@ -69,7 +71,7 @@ export const Navbar = () => {
 										rel="noopener noreferrer"
 										aria-label="GitHub"
 									>
-										<TablerBrandGithubFilled />
+										<IconBrandGithubFilled />
 									</a>
 								}
 							/>
@@ -84,7 +86,7 @@ export const Navbar = () => {
 										rel="noopener noreferrer"
 										aria-label="LinkedIn"
 									>
-										<TablerBrandLinkedinFilled />
+										<IconBrandLinkedinFilled />
 									</a>
 								}
 							/>
