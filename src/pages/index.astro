@@ -1,51 +1,114 @@
 ---
+import {
+    IconBrandGithubFilled,
+    IconBrandLinkedinFilled,
+    IconBrandX,
+    IconMailFilled,
+} from "@tabler/icons-react";
+import { SimpleIconsCodeforces } from "@/components/icons/codeforces";
 import { ContentContainer, GridBackground } from "@/components/ui/content";
 import BaseLayout from "@/layouts/Base.astro";
+
+const links = [
+    {
+        label: "GitHub",
+        href: "https://github.com/thecomputerm",
+        icon: IconBrandGithubFilled,
+    },
+    {
+        label: "LinkedIn",
+        href: "https://linkedin.com/in/mudit-somani2004/",
+        icon: IconBrandLinkedinFilled,
+    },
+    {
+        label: "Codeforces",
+        href: "https://codeforces.com/profile/thecomputerm",
+        icon: SimpleIconsCodeforces,
+    },
+    {
+        label: "X (Twitter)",
+        href: "https://x.com/TheComputerM",
+        icon: IconBrandX,
+    },
+    {
+        label: "Email",
+        href: "https://emn178.github.io/online-tools/base64_decode.html?input=bXVkaXQuc29tYW5pMDBAZ21haWwuY29t&output_type=utf-8",
+        icon: IconMailFilled,
+    },
+    // {
+    //     label: "Resume",
+    //     href: "TODO",
+    //     icon: IconFileCvFilled,
+    // },
+];
 ---
 
 <BaseLayout>
-	<div class="banner before:hidden dark:before:block mt-12">
-		<h1 class="title font-black text-purple-500 dark:text-violet-500">TCM</h1>
-	</div>
-	<GridBackground>
-		<ContentContainer>
-			<h2>Hey There</h2>
-			<p>
-				I'm Mudit Somani, (aka <b>TheComputerM</b>), currently pursing a
-				bachelor's in computer science at <a
-					href="https://www.bits-pilani.ac.in/"
-					target="_blank"
-				>
-					BITS Pilani</a
-				>.
-			</p>
-		</ContentContainer>
-		<ContentContainer>
-			<h2>About Me</h2>
-			<p>
-				I love tinkering around with various technologies and building projects
-				that probably won't see the light of day using some new/obscure tech
-				stack. Also a frequent victim of tunnel vision whenever I find some
-				shiny new tech.
-			</p>
-			<p>
-				I also contribute to open-source, which led me to being a
-				<a
-					href="https://summerofcode.withgoogle.com/archive/2024/projects/NDTqal0i"
-					>GSoC'24</a
-				>
-				participant for the <a href="https://dart.dev/">Dart</a> programming language
-				and a finalist in <a href="https://codein.withgoogle.com/archive/2019/"
-					>GCI'19</a
-				>
-				for the <a href="https://julialang.org/">Julia</a> programming language.
-			</p>
-			<p>
-				When I'm not writing shitty commit messages, I enjoy reading manga,
-				exploring the SCP foundation, gaming and playing badminton.
-			</p>
-		</ContentContainer>
-		<ContentContainer>
+    <div class="banner before:hidden dark:before:block mt-12">
+        <h1 class="title font-black text-purple-500 dark:text-violet-500">
+            TCM
+        </h1>
+    </div>
+    <GridBackground>
+        <ContentContainer>
+            <h2>Hey There</h2>
+            <p>
+                I'm Mudit Somani, (aka <b>TheComputerM</b>), currently pursing a
+                bachelor's in computer science at <a
+                    href="https://www.bits-pilani.ac.in/"
+                    target="_blank"
+                >
+                    BITS Pilani</a
+                >.
+            </p>
+        </ContentContainer>
+        <ContentContainer>
+            <h2>About Me</h2>
+            <p>
+                I love tinkering around with various technologies and building
+                projects that probably won't see the light of day using some
+                new/obscure tech stack. Also a frequent victim of tunnel vision
+                whenever I find some shiny new tech.
+            </p>
+            <p>
+                I also contribute to open-source, which led me to being a
+                <a
+                    href="https://summerofcode.withgoogle.com/archive/2024/projects/NDTqal0i"
+                    >GSoC'24</a
+                >
+                participant for the <a href="https://dart.dev/">Dart</a> programming
+                language and a finalist in <a
+                    href="https://codein.withgoogle.com/archive/2019/">GCI'19</a
+                >
+                for the <a href="https://julialang.org/">Julia</a> programming language.
+            </p>
+            <p>
+                When I'm not writing shitty commit messages, I enjoy reading
+                manga, exploring the SCP foundation, gaming and playing
+                badminton.
+            </p>
+        </ContentContainer>
+        <ContentContainer>
+            <h2>Get in Touch</h2>
+            <p class="text-muted-foreground">
+                My socials where you're free to talk or stalk.
+            </p>
+            <div class="grid sm:grid-cols-2 gap-4">
+                {
+                    links.map((link) => (
+                        <a
+                            href={link.href}
+                            target="_blank"
+                            class="no-underline inline-flex gap-3 justify-between items-center border-2 p-2 sm:p-3"
+                        >
+                            {link.label}
+                            <link.icon />
+                        </a>
+                    ))
+                }
+            </div>
+        </ContentContainer>
+        <!-- <ContentContainer>
 			<h2>Contact Me</h2>
 			<p>
 				Feel free to email me at
@@ -55,47 +118,45 @@ import BaseLayout from "@/layouts/Base.astro";
 					rel="noopener noreferrer">bXVkaXQuc29tYW5pMDBAZ21haWwuY29t</a
 				>, (the address is base64 encoded)
 			</p>
-		</ContentContainer>
-	</GridBackground>
+		</ContentContainer> -->
+    </GridBackground>
 </BaseLayout>
 
 <style>
-	.title {
-		text-align: center;
-		font-size: clamp(150px, 24vw, 24rem);
-		line-height: 1em;
-		user-select: none;
-		text-shadow:
-			4px 0 6px #ff0000,
-			-4px 0 6px #0000ff,
-			0 0 2rem currentColor;
-	}
+    .title {
+        text-align: center;
+        font-size: clamp(150px, 24vw, 24rem);
+        line-height: 1em;
+        user-select: none;
+        text-shadow:
+            4px 0 6px #ff0000,
+            -4px 0 6px #0000ff,
+            0 0 2rem currentColor;
+    }
 
-	.banner {
-		position: relative;
-	}
+    .banner {
+        position: relative;
+    }
 
-	.banner::before {
-		content: "";
-		position: absolute;
-		inset: 0;
-		z-index: 2;
-		pointer-events: none;
-		mix-blend-mode: color-burn;
+    .banner::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        pointer-events: none;
+        mix-blend-mode: color-burn;
 
-		background: linear-gradient(
-				rgba(18, 16, 16, 0) 50%,
-				rgba(0, 0, 0, 0.25) 50%
-			),
-			linear-gradient(
-				90deg,
-				rgba(255, 0, 0, 0.06),
-				rgba(0, 255, 0, 0.02),
-				rgba(0, 0, 255, 0.06)
-			);
+        background:
+            linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+            linear-gradient(
+                90deg,
+                rgba(255, 0, 0, 0.06),
+                rgba(0, 255, 0, 0.02),
+                rgba(0, 0, 255, 0.06)
+            );
 
-		background-size:
-			100% 2px,
-			3px 100%;
-	}
+        background-size:
+            100% 2px,
+            3px 100%;
+    }
 </style>
