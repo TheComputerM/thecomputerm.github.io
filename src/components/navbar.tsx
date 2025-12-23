@@ -49,7 +49,7 @@ const ThemeSwitcher = () => {
 
 export const Navbar = () => {
 	return (
-		<nav className="border-b-2 py-4">
+		<nav className="border-b-2 py-4 leading-tight">
 			<div className="px-4 sm:px-8 flex justify-between items-center">
 				<TooltipProvider>
 					<TooltipPrimitive.Root data-slot="tooltip">
