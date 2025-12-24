@@ -3,6 +3,7 @@ import {
     IconBrandGithubFilled,
     IconBrandLinkedinFilled,
     IconBrandX,
+    IconFileCvFilled,
     IconMailFilled,
 } from "@tabler/icons-react";
 import { SimpleIconsCodeforces } from "@/components/icons/codeforces";
@@ -35,11 +36,11 @@ const links = [
         href: "https://emn178.github.io/online-tools/base64_decode.html?input=bXVkaXQuc29tYW5pMDBAZ21haWwuY29t&output_type=utf-8",
         icon: IconMailFilled,
     },
-    // {
-    //     label: "Resume",
-    //     href: "TODO",
-    //     icon: IconFileCvFilled,
-    // },
+    {
+        label: "Résumé / CV",
+        href: "https://thecomputerm.dev/resume/cv.html",
+        icon: IconFileCvFilled,
+    },
 ];
 ---
 
@@ -91,7 +92,7 @@ const links = [
         <ContentContainer>
             <h2>Get in Touch</h2>
             <p class="text-muted-foreground">
-                My socials where you're free to talk or stalk.
+                My digital footprint where you're free to talk or stalk.
             </p>
             <div class="grid sm:grid-cols-2 gap-4">
                 {
@@ -108,17 +109,6 @@ const links = [
                 }
             </div>
         </ContentContainer>
-        <!-- <ContentContainer>
-			<h2>Contact Me</h2>
-			<p>
-				Feel free to email me at
-				<a
-					href="https://emn178.github.io/online-tools/base64_decode.html?input=bXVkaXQuc29tYW5pMDBAZ21haWwuY29t&output_type=utf-8"
-					target="_blank"
-					rel="noopener noreferrer">bXVkaXQuc29tYW5pMDBAZ21haWwuY29t</a
-				>, (the address is base64 encoded)
-			</p>
-		</ContentContainer> -->
     </GridBackground>
 </BaseLayout>
 
