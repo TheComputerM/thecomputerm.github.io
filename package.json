@@ -15,7 +15,7 @@
     "@base-ui/react": "^1.0.0",
     "@fontsource-variable/jetbrains-mono": "^5.2.8",
     "@octokit/core": "^7.0.6",
-    "@tabler/icons-react": "^3.36.0",
+    "@tabler/icons-react": "^3.36.1",
     "@tailwindcss/vite": "^4.1.18",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
