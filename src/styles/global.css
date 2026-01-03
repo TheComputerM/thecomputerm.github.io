@@ -24,7 +24,7 @@
 	--color-chart-3: var(--chart-3);
 	--color-chart-2: var(--chart-2);
 	--color-chart-1: var(--chart-1);
-	--color-ring: var(--ring);
+	--color-ring: var(--foreground);
 	--color-input: var(--input);
 	--color-border: var(--foreground);
 	--color-destructive: var(--destructive);
@@ -132,7 +132,7 @@
 	* {
 		scrollbar-width: thin;
 		scrollbar-color: var(--color-foreground) transparent;
-		@apply border-border outline-ring/50;
+		@apply border-border;
 	}
 
 	body {

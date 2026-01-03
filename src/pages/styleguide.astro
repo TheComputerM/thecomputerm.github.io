@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { ContentContainer, GridBackground } from "@/components/ui/content";
 import { Frame } from "@/components/ui/frame";
+import { Input } from "@/components/ui/input";
 import BaseLayout from "@/layouts/Base.astro";
 ---
 
@@ -76,6 +77,8 @@ import BaseLayout from "@/layouts/Base.astro";
             <Button variant="secondary">Secondary</Button>
             <Button variant="ghost">Ghost</Button>
             <Button disabled variant="ghost">Disabled</Button>
+            <hr />
+            <Input placeholder="Input" />
         </ContentContainer>
     </GridBackground>
 </BaseLayout>
