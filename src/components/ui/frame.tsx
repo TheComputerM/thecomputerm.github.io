@@ -1,12 +1,12 @@
-interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+interface FrameProps extends React.HTMLAttributes<HTMLDivElement> {
 	title: string;
 }
 
-export const Card = ({
+export const Frame = ({
 	title,
 	children,
 	...props
-}: React.PropsWithChildren<CardProps>) => {
+}: React.PropsWithChildren<FrameProps>) => {
 	const HorizontalLine = (
 		<div className="border-t-2 border-x-2 grow" aria-hidden="true" />
 	);

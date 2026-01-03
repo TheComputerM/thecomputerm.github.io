@@ -2,7 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import { render } from "astro:content";
 import { Octokit } from "@octokit/core";
-import { Card } from "@/components/ui/card";
+import { Frame } from "@/components/ui/frame";
 
 export const octokit = new Octokit();
 interface Props {
@@ -43,8 +43,8 @@ switch (project.data.source.type) {
 
 <h2>{project.id}</h2>
 <div class="grid sm:grid-cols-2 gap-2">
-    <Card title="description"><Content /></Card>
-    <Card title="links">
+    <Frame title="description"><Content /></Frame>
+    <Frame title="links">
         {
             links.map((link) => (
                 <p>
@@ -55,6 +55,6 @@ switch (project.data.source.type) {
                 </p>
             ))
         }
-    </Card>
+    </Frame>
 </div>
-<Card title="tags">{tags.join(", ")}</Card>
+<Frame title="tags">{tags.join(", ")}</Frame>

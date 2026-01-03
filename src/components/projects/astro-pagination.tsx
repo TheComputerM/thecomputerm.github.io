@@ -15,7 +15,7 @@ export function AstroPagination({ page }: { page: Page }) {
 				<PaginationItem>
 					<PaginationPrevious
 						href={page.url.prev}
-						aria-disabled={!!page.url.prev}
+						aria-disabled={!page.url.prev}
 					/>
 				</PaginationItem>
 				{Array.from({ length: page.lastPage })
@@ -32,7 +32,7 @@ export function AstroPagination({ page }: { page: Page }) {
 						</PaginationItem>
 					))}
 				<PaginationItem>
-					<PaginationNext href={page.url.next} />
+					<PaginationNext href={page.url.next} aria-disabled={!page.url.next} />
 				</PaginationItem>
 			</PaginationContent>
 		</Pagination>

@@ -1,79 +1,81 @@
 ---
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { ContentContainer, GridBackground } from "@/components/ui/content";
+import { Frame } from "@/components/ui/frame";
 import BaseLayout from "@/layouts/Base.astro";
 ---
 
 <BaseLayout>
-	<GridBackground>
-		<ContentContainer>
-			<h1>Heading 1</h1>
-			<h2>Heading 2</h2>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quidem
-				officiis, magni ut velit odio necessitatibus doloremque sint quos,
-				cupiditate illum mollitia ratione itaque facere repudiandae voluptate
-				eum iste dicta!
-			</p>
-			<hr />
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur eos
-				libero perspiciatis facere natus! Atque natus quis eaque, hic porro
-				temporibus dolorum blanditiis ipsa corporis quas labore enim.
-				Asperiores, nihil.
-			</p>
-			<h3>Heading 3</h3>
-			<Card title="title">
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum dolores
-				suscipit nostrum. Fugit maiores sit laudantium temporibus error? Optio
-				natus ipsum sit! Rerum atque in, officia obcaecati aliquam ullam eum.
-			</Card>
-			<br />
-			<ul>
-				<li>Item 1</li>
-				<li>Item 2</li>
-				<ol>
-					<li>Subitem 1</li>
-					<li>Subitem 2</li>
-				</ol>
-			</ul>
+    <GridBackground>
+        <ContentContainer>
+            <h1>Heading 1</h1>
+            <h2>Heading 2</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
+                quidem officiis, magni ut velit odio necessitatibus doloremque
+                sint quos, cupiditate illum mollitia ratione itaque facere
+                repudiandae voluptate eum iste dicta!
+            </p>
+            <hr />
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Pariatur eos libero perspiciatis facere natus! Atque natus quis
+                eaque, hic porro temporibus dolorum blanditiis ipsa corporis
+                quas labore enim. Asperiores, nihil.
+            </p>
+            <h3>Heading 3</h3>
+            <Frame title="title">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum
+                dolores suscipit nostrum. Fugit maiores sit laudantium
+                temporibus error? Optio natus ipsum sit! Rerum atque in, officia
+                obcaecati aliquam ullam eum.
+            </Frame>
+            <br />
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <ol>
+                    <li>Subitem 1</li>
+                    <li>Subitem 2</li>
+                </ol>
+            </ul>
 
-			<ol>
-				<li>Item 1</li>
-				<li>Item 2</li>
-				<ol>
-					<li>Subitem 1</li>
-					<li>Subitem 2</li>
-				</ol>
-			</ol>
-			<br />
-			<table>
-				<thead>
-					<tr>
-						<th>Header 1</th>
-						<th>Header 2</th>
-						<th>Header 3</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Data 1</td>
-						<td>Data 2</td>
-						<td>Data 3</td>
-					</tr>
-					<tr>
-						<td>Data 4</td>
-						<td>Data 5</td>
-						<td>Data 6</td>
-					</tr>
-				</tbody>
-			</table>
-			<hr />
-			<Button>Default</Button>
-			<Button variant="outline">Outline</Button>
-			<Button variant="secondary">Secondary</Button>
-			<Button variant="ghost">Ghost</Button>
-		</ContentContainer>
-	</GridBackground>
+            <ol>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <ol>
+                    <li>Subitem 1</li>
+                    <li>Subitem 2</li>
+                </ol>
+            </ol>
+            <br />
+            <table>
+                <thead>
+                    <tr>
+                        <th>Header 1</th>
+                        <th>Header 2</th>
+                        <th>Header 3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Data 1</td>
+                        <td>Data 2</td>
+                        <td>Data 3</td>
+                    </tr>
+                    <tr>
+                        <td>Data 4</td>
+                        <td>Data 5</td>
+                        <td>Data 6</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr />
+            <Button>Default</Button>
+            <Button variant="outline">Outline</Button>
+            <Button variant="secondary">Secondary</Button>
+            <Button variant="ghost">Ghost</Button>
+            <Button disabled variant="ghost">Disabled</Button>
+        </ContentContainer>
+    </GridBackground>
 </BaseLayout>
