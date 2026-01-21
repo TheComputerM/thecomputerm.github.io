@@ -67,10 +67,20 @@ export function GridPattern({
 	);
 }
 
-export const GridBackground = (props: React.PropsWithChildren) => {
+export const GridBackground = ({
+	children,
+	className,
+	...props
+}: React.ComponentProps<"div">) => {
 	return (
-		<div className="relative grid place-content-center gap-12 px-4 py-24">
-			{props.children}
+		<div
+			className={cn(
+				"relative grid place-content-center gap-12 px-4 py-24",
+				className,
+			)}
+			{...props}
+		>
+			{children}
 			<GridPattern
 				width={30}
 				height={30}
@@ -80,10 +90,20 @@ export const GridBackground = (props: React.PropsWithChildren) => {
 	);
 };
 
-export const ContentContainer = (props: React.PropsWithChildren) => {
+export const ContentContainer = ({
+	children,
+	className,
+	...props
+}: React.ComponentProps<"div">) => {
 	return (
-		<div className="bg-background border-2 min-w-0 md:shadow-[8px_8px_0_0] shadow-ring">
-			<div className="m-4 sm:m-8 prose">{props.children}</div>
+		<div
+			className={cn(
+				"bg-background border-2 min-w-0 md:shadow-[8px_8px_0_0] shadow-ring",
+				className,
+			)}
+			{...props}
+		>
+			<div className="m-4 sm:m-8 prose">{children}</div>
 		</div>
 	);
 };
